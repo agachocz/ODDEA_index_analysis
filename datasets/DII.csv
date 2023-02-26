@@ -1,0 +1,106 @@
+Year;ISO2C;ISO3C;Entity;Region;Income Group;Digital Evolution Zone;Is Country;Digital Evolution Score;Digital Evolution Momentum;Digital Evolution Score Rank;Digital Evolution Momentum Rank;Supply Conditions Score;Supply Conditions Momentum;Supply Conditions Score Rank;Supply Conditions Momentum Rank;Supply Zone;Demand Conditions Score;Demand Momentum;Demand Conditions Score Rank;Demand Momentum Rank;Demand Zone;Institutional Environment Score;Institutional Environment Momentum;Institutional Environment Score Rank;Institutional Environment Momentum Rank;Institutional Environment Zone;Innovation and Change Score;Innovation and Change Momentum;Innovation and Change Score Rank;Innovation and Change Momentum Rank;Innovation and Change Zone
+2019;AE;ARE;United Arab Emirates;Middle East & Africa;High income;Stand Out;1;74,44;56,06;24;16;69,78;66;31;39;Stand Out;87,52;44,61;18;48;Stall Out;76,65;33,81;19;29;Stand Out;57,02;49;20;10;Stand Out
+2019;AR;ARG;Argentina;Latin America & Caribbean;Upper middle income;Break Out;1;48,26;49,26;57;36;54,15;69,82;54;25;Break Out;59,16;39,9;50;67;Watch Out;43,73;32,62;59;34;Break Out;25,71;39,87;77;44;Break Out
+2019;AU;AUS;Australia;Asia Pacific;High income;Stall Out;1;80,09;33,78;17;88;84,27;54,95;11;84;Stall Out;95,29;45,88;8;40;Stand Out;79,99;19,45;16;90;Stall Out;56,14;35,59;21;75;Stall Out
+2019;AT;AUT;Austria;Europe & Central Asia;High income;Stall Out;1;75,42;36,4;21;83;77,57;57,23;21;78;Stall Out;86,14;41,05;19;62;Stall Out;77,1;22,58;18;87;Stall Out;54,53;37,74;25;62;Stall Out
+2019;AZ;AZE;Azerbaijan;Europe & Central Asia;Upper middle income;Break Out;1;51,85;65,28;53;2;56,03;71,01;52;19;Break Out;43,35;37,3;67;79;Watch Out;49,93;49,92;51;1;Break Out;43,05;48,94;33;11;Break Out
+2019;BE;BEL;Belgium;Europe & Central Asia;High income;Stall Out;1;74,51;36,17;23;84;77,12;56,88;23;81;Stall Out;88,36;46,04;16;37;Stand Out;73,49;25,35;22;74;Stall Out;52,88;32,83;26;85;Stall Out
+2019;BD;BGD;Bangladesh;Asia Pacific;Lower middle income;Break Out;1;32,67;54,06;83;23;36,68;69,83;77;24;Break Out;28,74;49,47;84;23;Break Out;27,57;36,75;81;14;Break Out;20,96;38,87;86;54;Watch Out
+2019;BG;BGR;Bulgaria;Europe & Central Asia;Upper middle income;Break Out;1;57,14;55,02;42;18;69,52;71,28;33;18;Break Out;55,85;41,75;54;57;Watch Out;55,59;35,57;41;19;Break Out;36,71;43,96;49;21;Break Out
+2019;BH;BHR;Bahrain;Middle East & Africa;High income;Break Out;1;63;54,65;36;21;60,89;57,64;47;77;Watch Out;78,24;50,4;27;22;Stand Out;63,01;32,85;35;33;Break Out;42,25;49,7;38;6;Break Out
+2019;BA;BIH;Bosnia & Herzegovina;Europe & Central Asia;Upper middle income;Watch Out;1;39,65;40,3;77;71;44,38;56,89;72;80;Watch Out;54,23;39,54;59;70;Watch Out;26,7;28,03;82;57;Watch Out;20,67;38,75;87;56;Watch Out
+2019;BO;BOL;Bolivia;Latin America & Caribbean;Lower middle income;Break Out;1;30,82;50,73;87;30;38,52;64,54;76;40;Break Out;41,69;52,9;70;15;Break Out;6;27,05;90;65;Watch Out;19,78;42,78;90;24;Break Out
+2019;BR;BRA;Brazil;Latin America & Caribbean;Upper middle income;Watch Out;1;47,19;39,19;59;76;53,33;59,48;55;68;Watch Out;58,3;45,17;52;44;Break Out;36,06;27,88;69;59;Watch Out;29;33,35;70;81;Watch Out
+2019;CA;CAN;Canada;North America;High income;Stall Out;1;80,24;38,12;16;81;79,12;58,38;20;75;Stall Out;91,77;45,31;13;43;Stand Out;83;23,57;13;83;Stall Out;61,22;36,79;15;67;Stall Out
+2019;CH;CHE;Switzerland;Europe & Central Asia;High income;Stall Out;1;86,89;43,44;6;62;97,06;71,37;3;17;Stand Out;89,12;37,79;15;78;Stall Out;82,97;28;14;58;Stall Out;70,8;36,54;7;70;Stall Out
+2019;CL;CHL;Chile;Latin America & Caribbean;High income;Break Out;1;62,13;48,59;38;39;66,25;67,59;39;37;Break Out;67,75;56,73;43;8;Break Out;66,68;23,91;29;81;Stall Out;39,67;40,2;43;41;Break Out
+2019;CN;CHN;China;Asia Pacific;Upper middle income;Break Out;1;61,89;85,51;39;1;65,14;77,24;40;6;Break Out;82,28;93,42;23;1;Stand Out;30,49;33,71;77;30;Break Out;56,02;58,65;23;1;Stand Out
+2019;CI;CIV;Côte d’Ivoire;Middle East & Africa;Lower middle income;Break Out;1;32,16;60,1;85;8;22,88;64,26;87;42;Break Out;34,68;43,33;78;52;Watch Out;28,13;41,87;80;6;Break Out;26,02;49,08;76;9;Break Out
+2019;CM;CMR;Cameroon;Middle East & Africa;Lower middle income;Break Out;1;28,01;55,45;88;17;25,63;76,48;85;7;Break Out;25,89;38,5;86;77;Watch Out;15,03;27;88;66;Watch Out;25,61;50,03;78;5;Break Out
+2019;CO;COL;Colombia;Latin America & Caribbean;Upper middle income;Watch Out;1;43,8;42,12;66;67;48,75;58,74;61;74;Watch Out;43,73;41,08;66;61;Watch Out;38,74;29,25;64;46;Watch Out;29,77;39,04;67;52;Watch Out
+2019;CR;CRI;Costa Rica;Latin America & Caribbean;Upper middle income;Watch Out;1;52,08;45,63;52;51;52,12;63,62;57;47;Watch Out;55,35;39,43;56;71;Watch Out;52,14;47,41;47;2;Break Out;36,88;27,6;48;89;Watch Out
+2019;CZ;CZE;Czechia;Europe & Central Asia;High income;Stand Out;1;68,68;50,89;27;29;74,75;71,43;26;16;Stand Out;77,45;42,11;32;56;Stall Out;62,23;30,85;37;40;Break Out;51,17;42,04;27;31;Stand Out
+2019;DE;DEU;Germany;Europe & Central Asia;High income;Stand Out;1;79,27;48,28;18;42;79,48;64,36;19;41;Stand Out;85,35;44,94;20;45;Stand Out;83,51;29,53;11;45;Stand Out;61,82;42,72;13;27;Stand Out
+2019;DK;DNK;Denmark;Europe & Central Asia;High income;Stall Out;1;87,17;43,78;5;61;97,56;79,03;2;2;Stand Out;98,62;49,46;3;24;Stand Out;87,28;20,27;6;89;Stall Out;61,38;33,26;14;82;Stall Out
+2019;DZ;DZA;Algeria;Middle East & Africa;Lower middle income;Break Out;1;34,31;54,88;79;19;34,97;54,59;80;87;Watch Out;40,81;48,32;72;29;Break Out;26,57;36,28;83;15;Break Out;20,06;49,67;88;7;Break Out
+2019;EC;ECU;Ecuador;Latin America & Caribbean;Upper middle income;Watch Out;1;40,9;44,23;73;58;46,49;64,14;65;43;Break Out;37,85;24,33;76;86;Watch Out;42,1;35,95;61;18;Break Out;23,51;41,16;82;38;Break Out
+2019;EG;EGY;Egypt;Middle East & Africa;Lower middle income;Watch Out;1;39,41;39,51;78;75;48,21;59,38;62;73;Watch Out;29,53;38,61;83;75;Watch Out;35,12;29,11;73;48;Watch Out;28,13;36,52;74;71;Watch Out
+2019;ES;ESP;Spain;Europe & Central Asia;High income;Stall Out;1;66,95;40,51;30;70;77,17;59,55;22;66;Stall Out;78,84;38,57;26;76;Stall Out;63,97;28,97;34;50;Watch Out;41,01;37,53;41;64;Watch Out
+2019;EE;EST;Estonia;Europe & Central Asia;High income;Stand Out;1;76,66;48,97;20;38;81,39;70,83;14;20;Stand Out;87,87;45,96;17;39;Stand Out;81,72;28,28;15;55;Stall Out;50,91;40,16;28;43;Stand Out
+2019;ET;ETH;Ethiopia;Middle East & Africa;Low income;Watch Out;1;21,11;43,26;90;64;18,57;62,43;90;54;Watch Out;16,26;4,27;89;90;Watch Out;8,35;28,05;89;56;Watch Out;19,86;57,09;89;2;Break Out
+2019;FI;FIN;Finland;Europe & Central Asia;High income;Stall Out;1;87,3;38,55;4;79;86,4;61,77;7;56;Stall Out;97,14;47,74;6;31;Stand Out;94,63;26,29;2;68;Stall Out;66,73;32,31;10;87;Stall Out
+2019;FR;FRA;France;Europe & Central Asia;High income;Stall Out;1;72,99;43,37;25;63;75,71;58,12;24;76;Stall Out;82;41,54;24;58;Stall Out;71,93;33,84;23;28;Stand Out;54,57;37,39;24;65;Stall Out
+2019;GB;GBR;United Kingdom;Europe & Central Asia;High income;Stall Out;1;81,48;44,81;13;55;80,13;63,45;17;48;Stall Out;95,18;46,75;9;33;Stand Out;84,9;29,16;9;47;Stall Out;60,73;37,75;17;61;Stall Out
+2019;GE;GEO;Georgia;Europe & Central Asia;Upper middle income;Break Out;1;53,46;60,72;47;7;59;77,51;50;5;Break Out;53,7;52,98;60;14;Break Out;60,07;39,68;39;9;Break Out;31,17;39,54;62;49;Watch Out
+2019;GH;GHA;Ghana;Middle East & Africa;Lower middle income;Break Out;1;41,69;49,89;71;32;29,68;60,92;84;60;Watch Out;44,78;52,59;65;16;Break Out;50,8;31,22;49;37;Break Out;28,79;41,69;71;34;Break Out
+2019;GR;GRC;Greece;Europe & Central Asia;High income;Watch Out;1;56,54;41,39;44;68;63,88;56,37;42;82;Watch Out;69,45;48,78;42;27;Break Out;48,92;24,88;52;78;Watch Out;34,54;39,04;55;51;Watch Out
+2019;HK;HKG;Hong Kong;Asia Pacific;High income;Stand Out;1;88,12;56,91;3;15;81,98;59,55;13;67;Stall Out;90,41;51,57;14;18;Stand Out;83,24;26,38;12;67;Stall Out;86,37;56,78;2;3;Stand Out
+2019;HR;HRV;Croatia;Europe & Central Asia;High income;Watch Out;1;56,6;39,1;43;77;63,63;62,45;43;53;Watch Out;72,69;40,04;38;66;Watch Out;52,96;31,17;46;38;Break Out;29,67;31,02;69;88;Watch Out
+2019;HU;HUN;Hungary;Europe & Central Asia;High income;Watch Out;1;57,75;30,64;41;89;67,65;68,2;35;33;Break Out;64,06;28,94;45;84;Watch Out;57,13;30,52;40;42;Break Out;33,3;22,16;57;90;Watch Out
+2019;ID;IDN;Indonesia;Asia Pacific;Upper middle income;Break Out;1;47,72;64,03;58;3;49,1;69,09;60;30;Break Out;47,52;60,23;63;6;Break Out;44,75;43,42;57;4;Break Out;35,61;42,77;52;25;Break Out
+2019;IN;IND;India;Asia Pacific;Lower middle income;Break Out;1;46,57;62,95;61;4;46,48;70,6;66;21;Break Out;30,66;40,57;82;64;Watch Out;53,4;42,38;44;5;Break Out;39,57;50,53;44;4;Break Out
+2019;IE;IRL;Ireland;Europe & Central Asia;High income;Stall Out;1;82,32;47,42;12;46;85,27;73,35;10;12;Stand Out;82,62;39,32;22;72;Stall Out;77,48;25,13;17;77;Stall Out;73,75;42,68;4;28;Stand Out
+2019;IR;IRN;Iran;Middle East & Africa;Upper middle income;Break Out;1;43,13;62,26;67;6;45;71,81;71;15;Break Out;58,53;55,29;51;11;Break Out;33,43;44,77;76;3;Break Out;23,95;39,3;80;50;Watch Out
+2019;IS;ISL;Iceland;Europe & Central Asia;High income;Stall Out;1;84,29;45,63;10;50;89,9;70,07;6;23;Stand Out;97,18;45,99;5;38;Stand Out;85,02;27,34;8;62;Stall Out;60,66;36,78;18;68;Stall Out
+2019;IL;ISR;Israel;Middle East & Africa;High income;Stand Out;1;75,02;49,35;22;34;71,22;64,1;28;44;Stand Out;77,62;43,91;31;50;Stall Out;67;34,12;27;26;Stand Out;71,97;41,29;6;37;Stand Out
+2019;IT;ITA;Italy;Europe & Central Asia;High income;Watch Out;1;61,27;47,27;40;47;67,32;59,81;36;65;Watch Out;76,39;44,1;33;49;Watch Out;54,22;32,58;43;35;Break Out;38,85;41,14;45;39;Break Out
+2019;JO;JOR;Jordan;Middle East & Africa;Upper middle income;Watch Out;1;49,07;41,03;56;69;45,22;61,47;70;57;Watch Out;45,18;41,15;64;60;Watch Out;51,77;20,97;48;88;Watch Out;39,94;43,35;42;22;Break Out
+2019;JP;JPN;Japan;Asia Pacific;High income;Stall Out;1;77,76;44,96;19;54;79,78;69,38;18;28;Stand Out;84,18;41,38;21;59;Stall Out;75,83;34,69;21;23;Stand Out;62,95;32,89;12;84;Stall Out
+2019;KZ;KAZ;Kazakhstan;Europe & Central Asia;Upper middle income;Break Out;1;50,71;54,81;55;20;55,63;63,42;53;49;Watch Out;64,14;51,5;44;19;Break Out;38,52;41,06;65;7;Break Out;33,05;39,01;58;53;Watch Out
+2019;KE;KEN;Kenya;Middle East & Africa;Lower middle income;Break Out;1;44,08;52,87;65;26;32,48;69,69;83;26;Break Out;54,87;57,81;58;7;Break Out;41,36;37,6;62;12;Break Out;34,32;33,21;56;83;Watch Out
+2019;KH;KHM;Cambodia;Asia Pacific;Lower middle income;Break Out;1;32,31;49,54;84;33;32,82;69,21;82;29;Break Out;32,83;41,02;80;63;Watch Out;25,22;36,11;84;17;Break Out;21,75;37,56;83;63;Watch Out
+2019;KR;KOR;South Korea;Asia Pacific;High income;Stand Out;1;83,09;58,59;11;11;91,55;63,11;5;51;Stall Out;100;65,89;1;2;Stand Out;64,06;30,71;33;41;Break Out;68,61;46,29;8;13;Stand Out
+2019;LA;LAO;Laos;Asia Pacific;Lower middle income;Watch Out;1;32,14;40,26;86;72;35,42;63,28;79;50;Watch Out;27,3;28,97;85;83;Watch Out;18,05;29,04;86;49;Watch Out;28,25;39,71;73;48;Watch Out
+2019;LB;LBN;Lebanon;Middle East & Africa;Upper middle income;Break Out;1;40,05;47,83;76;45;46,22;59,83;67;64;Watch Out;48,41;50,63;62;20;Break Out;15,93;28,93;87;51;Watch Out;32,61;41,55;59;35;Break Out
+2019;LK;LKA;Sri Lanka;Asia Pacific;Lower middle income;Watch Out;1;42,83;35,23;68;85;47,66;61,45;63;58;Watch Out;42,88;34,86;69;80;Watch Out;34,56;25,76;75;71;Watch Out;31,06;33,8;63;79;Watch Out
+2019;LT;LTU;Lithuania;Europe & Central Asia;High income;Stand Out;1;68,02;54,21;28;22;73,61;64,07;27;46;Stall Out;77,88;49,24;30;26;Stand Out;67,3;33,23;26;31;Stand Out;45,83;45,6;30;14;Stand Out
+2019;LV;LVA;Latvia;Europe & Central Asia;High income;Break Out;1;65,06;52,82;33;27;69,61;67,96;32;35;Stand Out;78,08;46,65;28;34;Stand Out;64,1;32,9;32;32;Stand Out;41,33;42,73;40;26;Break Out
+2019;MA;MAR;Morocco;Middle East & Africa;Lower middle income;Break Out;1;40,58;48,26;74;43;46,57;68,52;64;31;Break Out;23,22;33,55;87;82;Watch Out;46,28;38,09;53;11;Break Out;29,74;38,28;68;60;Watch Out
+2019;MX;MEX;Mexico;Latin America & Caribbean;Upper middle income;Watch Out;1;45,86;44,75;63;56;49,74;56,98;59;79;Watch Out;41,56;39,88;71;68;Watch Out;42,19;34,42;60;25;Break Out;34,94;40,22;54;40;Break Out
+2019;MY;MYS;Malaysia;Asia Pacific;Upper middle income;Stand Out;1;69,03;57,27;26;14;64,07;64,1;41;45;Break Out;71,13;64,82;40;3;Break Out;68,49;34,72;24;22;Stand Out;61,12;42;16;32;Stand Out
+2019;NA;NAM;Namibia;Middle East & Africa;Upper middle income;Watch Out;1;42,69;44,36;70;57;39,09;52,82;75;88;Watch Out;53,51;62,43;61;4;Break Out;37,47;25,16;67;76;Watch Out;27,96;38,67;75;57;Watch Out
+2019;NG;NGA;Nigeria;Middle East & Africa;Lower middle income;Watch Out;1;27,75;27,6;89;90;23,8;54,72;86;86;Watch Out;23,06;23,8;88;87;Watch Out;24,89;25,95;85;70;Watch Out;20,99;32,49;85;86;Watch Out
+2019;NL;NLD;Netherlands;Europe & Central Asia;High income;Stall Out;1;85,48;43,97;7;60;91,87;74,75;4;11;Stand Out;93,29;42,36;12;55;Stall Out;83,77;23,44;10;84;Stall Out;66,73;36,92;9;66;Stall Out
+2019;NO;NOR;Norway;Europe & Central Asia;High income;Stall Out;1;85,34;39,53;8;74;86,25;59,96;8;63;Stall Out;99,11;44,66;2;47;Stall Out;93,38;25,2;3;75;Stall Out;59,73;36,69;19;69;Stall Out
+2019;NZ;NZL;New Zealand;Asia Pacific;High income;Stall Out;1;80,46;44,04;15;59;80,77;59,41;15;71;Stall Out;94,96;46,5;10;35;Stand Out;86,08;29,98;7;43;Stand Out;56,06;38,32;22;59;Stall Out
+2019;PK;PAK;Pakistan;Asia Pacific;Lower middle income;Watch Out;1;34,03;34,7;80;86;36,12;62,31;78;55;Watch Out;15,14;12,1;90;89;Watch Out;37,3;27,31;68;63;Watch Out;28,61;42,13;72;30;Break Out
+2019;PE;PER;Peru;Latin America & Caribbean;Upper middle income;Watch Out;1;40,15;38,4;75;80;42,46;52,21;73;89;Watch Out;37,98;48,28;75;30;Break Out;40,42;28,28;63;54;Watch Out;25,47;35,31;79;76;Watch Out
+2019;PH;PHL;Philippines;Asia Pacific;Lower middle income;Watch Out;1;44,29;45,4;64;52;41,84;62,88;74;52;Watch Out;36,08;23,4;77;88;Watch Out;35,26;34,51;72;24;Break Out;45,18;45,39;31;16;Stand Out
+2019;PL;POL;Poland;Europe & Central Asia;High income;Break Out;1;63,58;57,29;34;13;67;72,02;37;14;Break Out;78,08;55,37;29;10;Stand Out;60,19;29,77;38;44;Break Out;41,37;44,97;39;17;Break Out
+2019;PT;PRT;Portugal;Europe & Central Asia;High income;Stall Out;1;65,75;38,04;32;82;70,22;51,84;30;90;Stall Out;75,34;45,6;35;42;Break Out;67,33;23,98;25;80;Stall Out;42,74;39,75;36;46;Watch Out
+2019;QA;QAT;Qatar;Middle East & Africa;High income;Stand Out;1;66,58;59,27;31;9;70,4;69,4;29;27;Stand Out;73,58;49,26;37;25;Break Out;65,83;39,23;30;10;Stand Out;47,78;44,62;29;20;Stand Out
+2019;RO;ROU;Romania;Europe & Central Asia;High income;Watch Out;1;54,06;45,01;46;53;66,88;78,17;38;4;Break Out;54,93;44,72;57;46;Watch Out;53,27;23,75;45;82;Watch Out;30,81;34,34;64;78;Watch Out
+2019;RU;RUS;Russia;Europe & Central Asia;Upper middle income;Break Out;1;52,78;58,9;49;10;61,43;72,13;45;13;Break Out;71,09;56,3;41;9;Break Out;28,82;35,56;79;20;Break Out;37,45;41,39;46;36;Break Out
+2019;RW;RWA;Rwanda;Middle East & Africa;Low income;Break Out;1;42,75;48,42;69;41;33,04;80,37;81;1;Break Out;31,7;39;81;73;Watch Out;62,5;33,97;36;27;Break Out;30,35;33,46;65;80;Watch Out
+2019;SA;SAU;Saudi Arabia;Middle East & Africa;High income;Break Out;1;62,42;58,26;37;12;60,77;59,38;48;72;Watch Out;71,94;61,28;39;5;Break Out;65,56;37,59;31;13;Stand Out;43,02;44,68;34;19;Break Out
+2019;SG;SGP;Singapore;Asia Pacific;High income;Stand Out;1;98,82;53,79;1;25;100;78,74;1;3;Stand Out;97,73;45,82;4;41;Stand Out;99,92;26,2;1;69;Stall Out;90,18;44,9;1;18;Stand Out
+2019;RS;SRB;Serbia;Europe & Central Asia;Upper middle income;Break Out;1;52,27;51,16;51;28;57,97;67,61;51;36;Break Out;59,4;40,51;48;65;Watch Out;44,79;34,87;56;21;Break Out;35,17;41,9;53;33;Break Out
+2019;SK;SVK;Slovakia;Europe & Central Asia;High income;Watch Out;1;63,01;42,29;35;66;69,51;61,42;34;59;Watch Out;75,51;39,84;34;69;Watch Out;55,15;28,38;42;53;Watch Out;42,89;38,83;35;55;Watch Out
+2019;SI;SVN;Slovenia;Europe & Central Asia;High income;Stall Out;1;67,35;45,64;29;49;75,22;76,16;25;8;Stand Out;75;34,7;36;81;Watch Out;66,83;25,63;28;72;Stall Out;44,63;39,84;32;45;Stand Out
+2019;SE;SWE;Sweden;Europe & Central Asia;High income;Stall Out;1;85,07;33,86;9;87;83,84;54,72;12;85;Stall Out;96,32;43,88;7;51;Stall Out;88,4;22,64;4;86;Stall Out;66,45;34,54;11;77;Stall Out
+2019;TH;THA;Thailand;Asia Pacific;Upper middle income;Break Out;1;53,04;48,12;48;44;59,02;59,41;49;70;Watch Out;59,19;53,88;49;13;Break Out;45,38;27,13;55;64;Watch Out;36,64;42,58;50;29;Break Out
+2019;TN;TUN;Tunisia;Middle East & Africa;Lower middle income;Watch Out;1;40,94;38,99;72;78;45,64;59,46;69;69;Watch Out;34,04;26,53;79;85;Watch Out;35,39;36,2;71;16;Break Out;32,03;35,71;60;74;Watch Out
+2019;TR;TUR;Turkey;Europe & Central Asia;Upper middle income;Watch Out;1;52,43;46,93;50;48;61,16;70,54;46;22;Break Out;62,16;47,11;47;32;Break Out;44,34;28,8;58;52;Watch Out;31,43;35,91;61;72;Watch Out
+2019;TW;TWN;Taiwan;Asia Pacific;High income;Stand Out;1;80,75;48,59;14;40;80,75;66,71;16;38;Stand Out;81,68;46,09;25;36;Stand Out;76,62;31,78;20;36;Stand Out;73,5;39,72;5;47;Stall Out
+2019;TZ;TZA;Tanzania;Middle East & Africa;Lower middle income;Break Out;1;33,34;50,32;82;31;21,44;68,14;88;34;Break Out;38,5;52,02;74;17;Break Out;38,04;25,49;66;73;Watch Out;21,22;43,17;84;23;Break Out
+2019;UG;UGA;Uganda;Middle East & Africa;Low income;Watch Out;1;33,7;40,03;81;73;20,38;60,6;89;62;Watch Out;40,35;42,62;73;53;Watch Out;35,94;24,5;70;79;Watch Out;23,53;38,49;81;58;Watch Out
+2019;UA;UKR;Ukraine;Europe & Central Asia;Lower middle income;Break Out;1;46,03;49,21;62;37;46,01;60,86;68;61;Watch Out;55,9;42,47;53;54;Watch Out;30,21;27,69;78;60;Watch Out;37,17;47,91;47;12;Break Out
+2019;UY;URY;Uruguay;Latin America & Caribbean;High income;Break Out;1;54,29;53,83;45;24;63,52;74,88;44;10;Break Out;63,99;55,03;46;12;Break Out;50,38;27,6;50;61;Watch Out;30,05;40,19;66;42;Break Out
+2019;US;USA;United States;North America;High income;Stand Out;1;89,82;49,34;2;35;85,92;68,27;9;32;Stand Out;93,4;48,78;11;28;Stand Out;87,67;23,44;5;85;Stall Out;83,46;45,43;3;15;Stand Out
+2019;VN;VNM;Vietnam;Asia Pacific;Lower middle income;Break Out;1;46,79;62,37;60;5;49,96;75,87;58;9;Break Out;42,98;38,89;68;74;Watch Out;34,87;39,87;74;8;Break Out;42,27;49,39;37;8;Break Out
+2019;ZA;ZAF;South Africa;Middle East & Africa;Upper middle income;Watch Out;1;50,79;42,52;54;65;52,77;55,45;56;83;Watch Out;55,38;50,4;55;21;Break Out;46,19;30,9;54;39;Break Out;36,31;35,89;51;73;Watch Out
+2019;HM;HM;High income median;;High income;;0;80,24;45,63;;;80,75;64,1;;;;88,36;45,82;;;;79,99;28,28;;;;60,66;39,72;;;
+2019;LM;LM;Low income median;;Low income;;0;33,7;43,26;;;20,38;62,43;;;;31,7;39;;;;35,94;28,05;;;;23,53;38,49;;;
+2019;LMM;LMM;Lower middle income median;;Lower middle income;;0;41,69;49,72;;;45,64;63,77;;;;40,81;39,73;;;;35,39;32,86;;;;31,06;41,91;;;
+2019;UMM;UMM;Upper middle income median;;Upper middle income;;0;52,08;47,97;;;56,03;63,86;;;;58,53;47,7;;;;44,79;34,06;;;;36,31;40,05;;;
+2019;APM;APM;Asia Pacific median;Asia Pacific;;;0;53,04;49,54;;;59,02;64,1;;;;59,19;45,88;;;;45,38;31,78;;;;45,18;42,13;;;
+2019;ECAM;ECAM;Europe & Central Asia median;Europe & Central Asia;;;0;66,95;45,63;;;71,22;64,36;;;;77,62;44,1;;;;64,1;28,8;;;;43,05;39,01;;;
+2019;LACM;LACM;Latin America & Caribbean median;Latin America & Caribbean;;;0;46,52;45,19;;;50,93;63,88;;;;49,54;43,12;;;;42,14;28,77;;;;29,38;40,03;;;
+2019;MEAM;MEAM;Middle East & Africa median;Middle East & Africa;;;0;41,31;49,16;;;42,05;61,2;;;;42,8;46,47;;;;37,75;32,03;;;;29,27;41,62;;;
+2019;NAM;NAM;North America median;North America;;;0;85,03;43,73;;;82,52;63,33;;;;92,59;47,05;;;;85,34;23,51;;;;72,34;41,11;;;
+2019;BOM;BOM;Break Out median;;;Break Out;0;47,25;54,36;;;49,53;69,15;;;;54,28;50,52;;;;44,24;35,22;;;;33,69;42,66;;;
+2019;SLOM;SLOM;Stall Out median;;;Stall Out;0;80,46;43,37;;;80,77;59,96;;;;91,77;44,66;;;;82,97;25,35;;;;60,66;36,79;;;
+2019;SOM;SOM;Stand Out median;;;Stand Out;0;76,66;53,79;;;79,48;66;;;;85,35;46,09;;;;76,62;30,85;;;;61,82;44,62;;;
+2019;WOM;WOM;Watch Out median;;;Watch Out;0;44,05;41,21;;;47,94;61,01;;;;44,45;39,86;;;;39,58;28,59;;;;30,29;38,58;;;
+2019;WW;WWM;World Wide - Median;WW;;;0;54,17;47,62;;;61,3;64,08;;;;64,03;44,83;;;;53,12;29,39;;;;38,15;39,8;;;
+2019;WR;WWR;World Wide - Reference;WR;;;0;65,41;47,62;;;69,61;64,08;;;;76,39;44,83;;;;64,1;29,39;;;;43,05;39,8;;;
