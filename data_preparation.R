@@ -1,4 +1,4 @@
-library(dplyr)
+library(tidyverse)
 
 # ADII
 adii <- read.csv("datasets/ADII.csv", sep = ";")
@@ -21,13 +21,17 @@ desi_total <- desi_pillars %>% group_by(Year, Key) %>%
 
 # DII
 dii <- read.csv("datasets/DII.csv", sep = ";") %>%
-  select(Year, Entity, Region, Income = Income.Group, Score = Digital.Evolution.Score)
+  select(Year, Entity, Region, Income = Income.Group, Score = Digital.Evolution.Score,
+         Supply = Supply.Conditions.Score, Demand = Demand.Conditions.Score,
+         Institutions = Institutional.Environment.Score, 
+         Innovation = Innovation.and.Change.Score)
 
 score_summary <- dii %>% group_by(Region, Income) %>% summarise(
   Mean_Score = mean(Score)
 )
 
 # WDCI
+# doesn't include all pillars, probably useless
 wdci <- read.csv("datasets/WDCI.csv", sep = ";", na.strings = "-")
 colnames(wdci) <- c("Entity", "Key", "Year", "Human_Skills",
                     "Mobile_Users", "E_participation")
@@ -66,3 +70,26 @@ desi_wdci <- wdci_clean %>%
 
 cor(desi_wdci$Score.x, desi_wdci$Score.y)
 plot(desi_wdci$Score.x, desi_wdci$Score.y)
+
+
+# correlations at pillars' level
+cor(dii[,6:9])
+cor(adii[,2:7])
+
+desi_by_pillar <- desi_pillars %>% pivot_wider(names_from = "breakdown",
+                                               values_from = "value")
+cor(desi_by_pillar[,4:7])
+cor_matrix <- cor(adii_dii[,6:9], adii_dii[,10:15])
+
+
+# Example of orthogonalization to exclude common component from pillars
+desi_by_pillar$Score <- rowMeans(desi_by_pillar[,4:7])
+model_conn <- lm(desi_conn ~ Score, desi_by_pillar)
+model_dps <- lm(desi_dps ~ Score, desi_by_pillar)
+
+cor(desi_by_pillar$desi_conn, desi_by_pillar$desi_dps)
+cor(model_conn$residuals, model_dps$residuals)
+cor(desi_by_pillar$desi_dps, model_conn$residuals)
+
+plot(desi_by_pillar$desi_conn, desi_by_pillar$desi_dps)
+plot(model_conn$residuals, model_dps$residuals)
