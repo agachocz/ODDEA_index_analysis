@@ -25,7 +25,7 @@
 
 - DESI x WDCI (EU): 0.67, 50 observations
 
-- EDCI x DII (World): 0.73, 52 observations
+- WDCI x DII (World): 0.73, 52 observations
 
 ### Problems (TO DO)
 
