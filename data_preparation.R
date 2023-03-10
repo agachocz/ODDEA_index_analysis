@@ -10,7 +10,7 @@ adii$Score <- rowMeans(adii[,-1])
 # DESI
 desi <- read.csv("datasets/DESI.csv")
 
-unique(desi$indicator)
+unique(desi$ref_area)
 
 desi_pillars <- desi %>% filter(indicator == "desi") %>%
   select(Year = time_period, Key = ref_area, 

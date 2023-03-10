@@ -26,3 +26,20 @@ desi_dii_ranking <- desi_dii_ranking %>% left_join(rank_desi, by = "Entity") %>%
   left_join(rank_dii, by = "Entity") %>% arrange(desc(DII))
 
 write.csv(desi_dii_ranking, "DESI DII ranking.csv")
+
+
+# differing cases
+better_DII <- c("Germany", "Poland", "Czechia", "Belgium", "France")
+desi_dii %>% filter(Entity %in% better_DII) %>% select(Entity, Supply, Demand, Institutions, Innovation,
+            Connectivity, Public_Services, Human_Capital, Integration) %>% t()
+
+desi_dii %>% select(Supply, Demand, Institutions, Innovation,
+       Connectivity, Public_Services, Human_Capital, Integration) %>% colMeans()
+
+ES_DE_diff <- desi %>% filter(time_period == 2019, ref_area %in% c("DE", "ES")) %>% 
+                  select(ref_area, indicator, breakdown, value)  %>%
+  filter(!is.na(value)) %>% arrange(indicator) %>% filter(indicator != "") %>%
+  pivot_wider(names_from = "ref_area", values_from = "value") %>%
+  mutate(diff = DE - ES)
+
+                
