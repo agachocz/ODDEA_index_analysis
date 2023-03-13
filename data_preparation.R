@@ -10,7 +10,7 @@ adii$Score <- rowMeans(adii[,-1])
 # DESI
 desi <- read.csv("datasets/DESI.csv")
 
-unique(desi$ref_area)
+unique(desi$indicator)
 
 desi_pillars <- desi %>% filter(indicator == "desi") %>%
   select(Year = time_period, Key = ref_area, 
@@ -18,8 +18,10 @@ desi_pillars <- desi %>% filter(indicator == "desi") %>%
   pivot_wider(names_from = "breakdown", values_from = "value") %>%
   rename(Connectivity = desi_conn, Public_Services = desi_dps,
          Human_Capital = desi_hc, Integration = desi_idt) %>%
-  mutate(Score = (Connectivity + Public_Services + Human_Capital + Integration)/4)
+  mutate(Score = (Connectivity + Public_Services + Human_Capital + Integration))
 
+total <- desi %>% filter(indicator == "desi_total", time_period == 2019)
+desi_main <- desi %>% filter(indicator == "desi_hc", time_period == 2019)
 
 # DII
 dii <- read.csv("datasets/DII.csv", sep = ";") %>%
