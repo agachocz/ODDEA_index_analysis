@@ -14,6 +14,10 @@ write.csv(adii_dii_ranking, "ADII DII ranking.csv")
 cor(adii_dii$Score.x, adii_dii$Score.y, method = "s")
 cor(desi_dii$Score.x, desi_dii$Score.y, method = "s")
 
+# Japan
+adii_dii %>% filter(Entity == "South Korea")
+colMeans(adii_dii[,6:15])
+
 # DESI vs DII ranking
 
 desi_dii_ranking <- desi_dii %>% select(Entity, DII = Score.x, DESI = Score.y)
