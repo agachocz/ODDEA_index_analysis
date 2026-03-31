@@ -126,3 +126,21 @@ cor(desi_dii$Score.x, desi_dii$Score.y)
 plot(desi_dii$Score.x, desi_dii$Score.y)
 
 
+adii_dii_mod <- adii_dii %>% rename(DII = Score.x, ADII = Score.y) %>%
+  rename(DII_Supply = Supply, DII_Demand = Demand, DII_Institutions = Institutions,
+         DII_Innovation = Innovation.x, ADII_Trade_Logistics = Trade_Logistics,
+         ADII_Cybersecurity = Cybersecurity, ADII_Digital_Payments = Digital_Payments,
+         ADII_Human_Skills = Human_Skills, ADII_Innovation = Innovation.y,
+         ADII_Institutions_Infrastructure = Institutions_Infrastructure) %>%
+  pivot_longer(cols = DII:ADII, names_to = "Pillar", values_to = "Value") %>%
+  select(-Income)
+
+desi_mod <- desi %>% mutate(Region = "EU") %>% select(-Key, -indicator) %>%
+  rename(DESI = Score) %>% filter(Year == 2019) %>%
+  rename(DESI_Connectivity = Connectivity, DESI_Public_Services = Public_Services,
+         DESI_Human_Capital = Human_Capital, DESI_Integration = Integration) %>%
+  pivot_longer(DESI_Connectivity:DESI, names_to = "Pillar", values_to = "Value")
+
+full_dataset <- adii_dii_mod %>% full_join(desi_mod)
+write.csv(full_dataset, "ODDEA_dataset.csv")
+getwd()

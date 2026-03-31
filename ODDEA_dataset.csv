@@ -1,0 +1,297 @@
+"","Year","Entity","Region","Pillar","Value"
+"1",2019,"Australia","Asia Pacific","DII",80.09
+"2",2019,"Australia","Asia Pacific","DII_Supply",84.27
+"3",2019,"Australia","Asia Pacific","DII_Demand",95.29
+"4",2019,"Australia","Asia Pacific","DII_Institutions",79.99
+"5",2019,"Australia","Asia Pacific","DII_Innovation",56.14
+"6",2019,"Australia","Asia Pacific","ADII_Trade_Logistics",90.72
+"7",2019,"Australia","Asia Pacific","ADII_Cybersecurity",90.77
+"8",2019,"Australia","Asia Pacific","ADII_Digital_Payments",88
+"9",2019,"Australia","Asia Pacific","ADII_Human_Skills",52.99
+"10",2019,"Australia","Asia Pacific","ADII_Innovation",66.3
+"11",2019,"Australia","Asia Pacific","ADII_Institutions_Infrastructure",60.87
+"12",2019,"Australia","Asia Pacific","ADII",74.9416666666667
+"13",2019,"China","Asia Pacific","DII",61.89
+"14",2019,"China","Asia Pacific","DII_Supply",65.14
+"15",2019,"China","Asia Pacific","DII_Demand",82.28
+"16",2019,"China","Asia Pacific","DII_Institutions",30.49
+"17",2019,"China","Asia Pacific","DII_Innovation",56.02
+"18",2019,"China","Asia Pacific","ADII_Trade_Logistics",86.5
+"19",2019,"China","Asia Pacific","ADII_Cybersecurity",75.73
+"20",2019,"China","Asia Pacific","ADII_Digital_Payments",74.73
+"21",2019,"China","Asia Pacific","ADII_Human_Skills",64.76
+"22",2019,"China","Asia Pacific","ADII_Innovation",68.74
+"23",2019,"China","Asia Pacific","ADII_Institutions_Infrastructure",53.63
+"24",2019,"China","Asia Pacific","ADII",70.6816666666667
+"25",2019,"Indonesia","Asia Pacific","DII",47.72
+"26",2019,"Indonesia","Asia Pacific","DII_Supply",49.1
+"27",2019,"Indonesia","Asia Pacific","DII_Demand",47.52
+"28",2019,"Indonesia","Asia Pacific","DII_Institutions",44.75
+"29",2019,"Indonesia","Asia Pacific","DII_Innovation",35.61
+"30",2019,"Indonesia","Asia Pacific","ADII_Trade_Logistics",49.67
+"31",2019,"Indonesia","Asia Pacific","ADII_Cybersecurity",78.43
+"32",2019,"Indonesia","Asia Pacific","ADII_Digital_Payments",59.73
+"33",2019,"Indonesia","Asia Pacific","ADII_Human_Skills",45.64
+"34",2019,"Indonesia","Asia Pacific","ADII_Innovation",48.81
+"35",2019,"Indonesia","Asia Pacific","ADII_Institutions_Infrastructure",62.44
+"36",2019,"Indonesia","Asia Pacific","ADII",57.4533333333333
+"37",2019,"Japan","Asia Pacific","DII",77.76
+"38",2019,"Japan","Asia Pacific","DII_Supply",79.78
+"39",2019,"Japan","Asia Pacific","DII_Demand",84.18
+"40",2019,"Japan","Asia Pacific","DII_Institutions",75.83
+"41",2019,"Japan","Asia Pacific","DII_Innovation",62.95
+"42",2019,"Japan","Asia Pacific","ADII_Trade_Logistics",93.36
+"43",2019,"Japan","Asia Pacific","ADII_Cybersecurity",90.93
+"44",2019,"Japan","Asia Pacific","ADII_Digital_Payments",82
+"45",2019,"Japan","Asia Pacific","ADII_Human_Skills",54.77
+"46",2019,"Japan","Asia Pacific","ADII_Innovation",77.32
+"47",2019,"Japan","Asia Pacific","ADII_Institutions_Infrastructure",60.67
+"48",2019,"Japan","Asia Pacific","ADII",76.5083333333333
+"49",2019,"Cambodia","Asia Pacific","DII",32.31
+"50",2019,"Cambodia","Asia Pacific","DII_Supply",32.82
+"51",2019,"Cambodia","Asia Pacific","DII_Demand",32.83
+"52",2019,"Cambodia","Asia Pacific","DII_Institutions",25.22
+"53",2019,"Cambodia","Asia Pacific","DII_Innovation",21.75
+"54",2019,"Cambodia","Asia Pacific","ADII_Trade_Logistics",33.91
+"55",2019,"Cambodia","Asia Pacific","ADII_Cybersecurity",24.76
+"56",2019,"Cambodia","Asia Pacific","ADII_Digital_Payments",41.2
+"57",2019,"Cambodia","Asia Pacific","ADII_Human_Skills",36.56
+"58",2019,"Cambodia","Asia Pacific","ADII_Innovation",38.19
+"59",2019,"Cambodia","Asia Pacific","ADII_Institutions_Infrastructure",50.97
+"60",2019,"Cambodia","Asia Pacific","ADII",37.5983333333333
+"61",2019,"South Korea","Asia Pacific","DII",83.09
+"62",2019,"South Korea","Asia Pacific","DII_Supply",91.55
+"63",2019,"South Korea","Asia Pacific","DII_Demand",100
+"64",2019,"South Korea","Asia Pacific","DII_Institutions",64.06
+"65",2019,"South Korea","Asia Pacific","DII_Innovation",68.61
+"66",2019,"South Korea","Asia Pacific","ADII_Trade_Logistics",89.28
+"67",2019,"South Korea","Asia Pacific","ADII_Cybersecurity",88.42
+"68",2019,"South Korea","Asia Pacific","ADII_Digital_Payments",81.42
+"69",2019,"South Korea","Asia Pacific","ADII_Human_Skills",53.77
+"70",2019,"South Korea","Asia Pacific","ADII_Innovation",77.92
+"71",2019,"South Korea","Asia Pacific","ADII_Institutions_Infrastructure",63.59
+"72",2019,"South Korea","Asia Pacific","ADII",75.7333333333333
+"73",2019,"Laos","Asia Pacific","DII",32.14
+"74",2019,"Laos","Asia Pacific","DII_Supply",35.42
+"75",2019,"Laos","Asia Pacific","DII_Demand",27.3
+"76",2019,"Laos","Asia Pacific","DII_Institutions",18.05
+"77",2019,"Laos","Asia Pacific","DII_Innovation",28.25
+"78",2019,"Laos","Asia Pacific","ADII_Trade_Logistics",23.22
+"79",2019,"Laos","Asia Pacific","ADII_Cybersecurity",32.58
+"80",2019,"Laos","Asia Pacific","ADII_Digital_Payments",44.53
+"81",2019,"Laos","Asia Pacific","ADII_Human_Skills",43.89
+"82",2019,"Laos","Asia Pacific","ADII_Innovation",36.91
+"83",2019,"Laos","Asia Pacific","ADII_Institutions_Infrastructure",38.27
+"84",2019,"Laos","Asia Pacific","ADII",36.5666666666667
+"85",2019,"Malaysia","Asia Pacific","DII",69.03
+"86",2019,"Malaysia","Asia Pacific","DII_Supply",64.07
+"87",2019,"Malaysia","Asia Pacific","DII_Demand",71.13
+"88",2019,"Malaysia","Asia Pacific","DII_Institutions",68.49
+"89",2019,"Malaysia","Asia Pacific","DII_Innovation",61.12
+"90",2019,"Malaysia","Asia Pacific","ADII_Trade_Logistics",67.35
+"91",2019,"Malaysia","Asia Pacific","ADII_Cybersecurity",91.27
+"92",2019,"Malaysia","Asia Pacific","ADII_Digital_Payments",79.2
+"93",2019,"Malaysia","Asia Pacific","ADII_Human_Skills",57.85
+"94",2019,"Malaysia","Asia Pacific","ADII_Innovation",59.22
+"95",2019,"Malaysia","Asia Pacific","ADII_Institutions_Infrastructure",82.18
+"96",2019,"Malaysia","Asia Pacific","ADII",72.845
+"97",2019,"New Zealand","Asia Pacific","DII",80.46
+"98",2019,"New Zealand","Asia Pacific","DII_Supply",80.77
+"99",2019,"New Zealand","Asia Pacific","DII_Demand",94.96
+"100",2019,"New Zealand","Asia Pacific","DII_Institutions",86.08
+"101",2019,"New Zealand","Asia Pacific","DII_Innovation",56.06
+"102",2019,"New Zealand","Asia Pacific","ADII_Trade_Logistics",92.04
+"103",2019,"New Zealand","Asia Pacific","ADII_Cybersecurity",85.91
+"104",2019,"New Zealand","Asia Pacific","ADII_Digital_Payments",90.33
+"105",2019,"New Zealand","Asia Pacific","ADII_Human_Skills",55.7
+"106",2019,"New Zealand","Asia Pacific","ADII_Innovation",65.84
+"107",2019,"New Zealand","Asia Pacific","ADII_Institutions_Infrastructure",63.9
+"108",2019,"New Zealand","Asia Pacific","ADII",75.62
+"109",2019,"Philippines","Asia Pacific","DII",44.29
+"110",2019,"Philippines","Asia Pacific","DII_Supply",41.84
+"111",2019,"Philippines","Asia Pacific","DII_Demand",36.08
+"112",2019,"Philippines","Asia Pacific","DII_Institutions",35.26
+"113",2019,"Philippines","Asia Pacific","DII_Innovation",45.18
+"114",2019,"Philippines","Asia Pacific","ADII_Trade_Logistics",60.61
+"115",2019,"Philippines","Asia Pacific","ADII_Cybersecurity",72.49
+"116",2019,"Philippines","Asia Pacific","ADII_Digital_Payments",31.89
+"117",2019,"Philippines","Asia Pacific","ADII_Human_Skills",53.13
+"118",2019,"Philippines","Asia Pacific","ADII_Innovation",46.93
+"119",2019,"Philippines","Asia Pacific","ADII_Institutions_Infrastructure",58.89
+"120",2019,"Philippines","Asia Pacific","ADII",53.99
+"121",2019,"Singapore","Asia Pacific","DII",98.82
+"122",2019,"Singapore","Asia Pacific","DII_Supply",100
+"123",2019,"Singapore","Asia Pacific","DII_Demand",97.73
+"124",2019,"Singapore","Asia Pacific","DII_Institutions",99.92
+"125",2019,"Singapore","Asia Pacific","DII_Innovation",90.18
+"126",2019,"Singapore","Asia Pacific","ADII_Trade_Logistics",82.64
+"127",2019,"Singapore","Asia Pacific","ADII_Cybersecurity",89.7
+"128",2019,"Singapore","Asia Pacific","ADII_Digital_Payments",86.6
+"129",2019,"Singapore","Asia Pacific","ADII_Human_Skills",63.79
+"130",2019,"Singapore","Asia Pacific","ADII_Innovation",71.08
+"131",2019,"Singapore","Asia Pacific","ADII_Institutions_Infrastructure",90.36
+"132",2019,"Singapore","Asia Pacific","ADII",80.695
+"133",2019,"Thailand","Asia Pacific","DII",53.04
+"134",2019,"Thailand","Asia Pacific","DII_Supply",59.02
+"135",2019,"Thailand","Asia Pacific","DII_Demand",59.19
+"136",2019,"Thailand","Asia Pacific","DII_Institutions",45.38
+"137",2019,"Thailand","Asia Pacific","DII_Innovation",36.64
+"138",2019,"Thailand","Asia Pacific","ADII_Trade_Logistics",83.34
+"139",2019,"Thailand","Asia Pacific","ADII_Cybersecurity",87.91
+"140",2019,"Thailand","Asia Pacific","ADII_Digital_Payments",69.73
+"141",2019,"Thailand","Asia Pacific","ADII_Human_Skills",43.76
+"142",2019,"Thailand","Asia Pacific","ADII_Innovation",56.09
+"143",2019,"Thailand","Asia Pacific","ADII_Institutions_Infrastructure",62.61
+"144",2019,"Thailand","Asia Pacific","ADII",67.24
+"145",2019,"Vietnam","Asia Pacific","DII",46.79
+"146",2019,"Vietnam","Asia Pacific","DII_Supply",49.96
+"147",2019,"Vietnam","Asia Pacific","DII_Demand",42.98
+"148",2019,"Vietnam","Asia Pacific","DII_Institutions",34.87
+"149",2019,"Vietnam","Asia Pacific","DII_Innovation",42.27
+"150",2019,"Vietnam","Asia Pacific","ADII_Trade_Logistics",78.5
+"151",2019,"Vietnam","Asia Pacific","ADII_Cybersecurity",63.05
+"152",2019,"Vietnam","Asia Pacific","ADII_Digital_Payments",58.33
+"153",2019,"Vietnam","Asia Pacific","ADII_Human_Skills",38.38
+"154",2019,"Vietnam","Asia Pacific","ADII_Innovation",44.55
+"155",2019,"Vietnam","Asia Pacific","ADII_Institutions_Infrastructure",60.72
+"156",2019,"Vietnam","Asia Pacific","ADII",57.255
+"157",2019,"Austria","EU","DESI_Connectivity",0.07003
+"158",2019,"Austria","EU","DESI_Public_Services",0.146071
+"159",2019,"Austria","EU","DESI_Human_Capital",0.126204
+"160",2019,"Austria","EU","DESI_Integration",0.0698891
+"161",2019,"Austria","EU","DESI",0.4121941
+"162",2019,"Bulgaria","EU","DESI_Connectivity",0.0696679
+"163",2019,"Bulgaria","EU","DESI_Public_Services",0.100935
+"164",2019,"Bulgaria","EU","DESI_Human_Capital",0.079666
+"165",2019,"Bulgaria","EU","DESI_Integration",0.0301771
+"166",2019,"Bulgaria","EU","DESI",0.280446
+"167",2019,"Germany","EU","DESI_Connectivity",0.0819849
+"168",2019,"Germany","EU","DESI_Public_Services",0.129096
+"169",2019,"Germany","EU","DESI_Human_Capital",0.106288
+"170",2019,"Germany","EU","DESI_Integration",0.0661236
+"171",2019,"Germany","EU","DESI",0.3834925
+"172",2019,"Ireland","EU","DESI_Connectivity",0.0669301
+"173",2019,"Ireland","EU","DESI_Public_Services",0.162479
+"174",2019,"Ireland","EU","DESI_Human_Capital",0.143906
+"175",2019,"Ireland","EU","DESI_Integration",0.0936579
+"176",2019,"Ireland","EU","DESI",0.466973
+"177",2019,"Lithuania","EU","DESI_Connectivity",0.0823137
+"178",2019,"Lithuania","EU","DESI_Public_Services",0.166678
+"179",2019,"Lithuania","EU","DESI_Human_Capital",0.0961467
+"180",2019,"Lithuania","EU","DESI_Integration",0.076772
+"181",2019,"Lithuania","EU","DESI",0.4219104
+"182",2019,"Slovenia","EU","DESI_Connectivity",0.0884882
+"183",2019,"Slovenia","EU","DESI_Public_Services",0.13745
+"184",2019,"Slovenia","EU","DESI_Human_Capital",0.105294
+"185",2019,"Slovenia","EU","DESI_Integration",0.0776296
+"186",2019,"Slovenia","EU","DESI",0.4088618
+"187",2019,"Finland","EU","DESI_Connectivity",0.0882777
+"188",2019,"Finland","EU","DESI_Public_Services",0.18138
+"189",2019,"Finland","EU","DESI_Human_Capital",0.164448
+"190",2019,"Finland","EU","DESI_Integration",0.107316
+"191",2019,"Finland","EU","DESI",0.5414217
+"192",2019,"France","EU","DESI_Connectivity",0.0827632
+"193",2019,"France","EU","DESI_Public_Services",0.133071
+"194",2019,"France","EU","DESI_Human_Capital",0.118081
+"195",2019,"France","EU","DESI_Integration",0.0607288
+"196",2019,"France","EU","DESI",0.394644
+"197",2019,"Greece","EU","DESI_Connectivity",0.0407207
+"198",2019,"Greece","EU","DESI_Public_Services",0.073408
+"199",2019,"Greece","EU","DESI_Human_Capital",0.0913787
+"200",2019,"Greece","EU","DESI_Integration",0.0497526
+"201",2019,"Greece","EU","DESI",0.25526
+"202",2019,"Slovakia","EU","DESI_Connectivity",0.0694126
+"203",2019,"Slovakia","EU","DESI_Public_Services",0.105697
+"204",2019,"Slovakia","EU","DESI_Human_Capital",0.0999807
+"205",2019,"Slovakia","EU","DESI_Integration",0.0574311
+"206",2019,"Slovakia","EU","DESI",0.3325214
+"207",2019,"Belgium","EU","DESI_Connectivity",0.0654755
+"208",2019,"Belgium","EU","DESI_Public_Services",0.130727
+"209",2019,"Belgium","EU","DESI_Human_Capital",0.115541
+"210",2019,"Belgium","EU","DESI_Integration",0.0882878
+"211",2019,"Belgium","EU","DESI",0.4000313
+"212",2019,"Luxembourg","EU","DESI_Connectivity",0.105743
+"213",2019,"Luxembourg","EU","DESI_Public_Services",0.170895
+"214",2019,"Luxembourg","EU","DESI_Human_Capital",0.131453
+"215",2019,"Luxembourg","EU","DESI_Integration",0.0692022
+"216",2019,"Luxembourg","EU","DESI",0.4772932
+"217",2019,NA,"EU","DESI_Connectivity",0.0793618
+"218",2019,NA,"EU","DESI_Public_Services",0.177597
+"219",2019,NA,"EU","DESI_Human_Capital",0.132874
+"220",2019,NA,"EU","DESI_Integration",0.0846245
+"221",2019,NA,"EU","DESI",0.4744573
+"222",2019,"Denmark","EU","DESI_Connectivity",0.107534
+"223",2019,"Denmark","EU","DESI_Public_Services",0.172854
+"224",2019,"Denmark","EU","DESI_Human_Capital",0.137221
+"225",2019,"Denmark","EU","DESI_Integration",0.102903
+"226",2019,"Denmark","EU","DESI",0.520512
+"227",2019,"Cyprus","EU","DESI_Connectivity",0.0523052
+"228",2019,"Cyprus","EU","DESI_Public_Services",0.108005
+"229",2019,"Cyprus","EU","DESI_Human_Capital",0.099053
+"230",2019,"Cyprus","EU","DESI_Integration",0.0678429
+"231",2019,"Cyprus","EU","DESI",0.3272061
+"232",2019,"Estonia","EU","DESI_Connectivity",0.08689
+"233",2019,"Estonia","EU","DESI_Public_Services",0.190014
+"234",2019,"Estonia","EU","DESI_Human_Capital",0.12491
+"235",2019,"Estonia","EU","DESI_Integration",0.0639191
+"236",2019,"Estonia","EU","DESI",0.4657331
+"237",2019,NA,"EU","DESI_Connectivity",0.076491
+"238",2019,NA,"EU","DESI_Public_Services",0.135501
+"239",2019,NA,"EU","DESI_Human_Capital",0.107106
+"240",2019,NA,"EU","DESI_Integration",0.0673437
+"241",2019,NA,"EU","DESI",0.3864417
+"242",2019,"Croatia","EU","DESI_Connectivity",0.0599023
+"243",2019,"Croatia","EU","DESI_Public_Services",0.102868
+"244",2019,"Croatia","EU","DESI_Human_Capital",0.125601
+"245",2019,"Croatia","EU","DESI_Integration",0.0622421
+"246",2019,"Croatia","EU","DESI",0.3506134
+"247",2019,"Italy","EU","DESI_Connectivity",0.0763541
+"248",2019,"Italy","EU","DESI_Public_Services",0.111679
+"249",2019,"Italy","EU","DESI_Human_Capital",0.0871498
+"250",2019,"Italy","EU","DESI_Integration",0.0682485
+"251",2019,"Italy","EU","DESI",0.3434314
+"252",2019,"Latvia","EU","DESI_Connectivity",0.107949
+"253",2019,"Latvia","EU","DESI_Public_Services",0.162293
+"254",2019,"Latvia","EU","DESI_Human_Capital",0.0977249
+"255",2019,"Latvia","EU","DESI_Integration",0.0418713
+"256",2019,"Latvia","EU","DESI",0.4098382
+"257",2019,"Portugal","EU","DESI_Connectivity",0.0880614
+"258",2019,"Portugal","EU","DESI_Public_Services",0.138952
+"259",2019,"Portugal","EU","DESI_Human_Capital",0.0998875
+"260",2019,"Portugal","EU","DESI_Integration",0.0762212
+"261",2019,"Portugal","EU","DESI",0.4031221
+"262",2019,"Romania","EU","DESI_Connectivity",0.0916245
+"263",2019,"Romania","EU","DESI_Public_Services",0.0295759
+"264",2019,"Romania","EU","DESI_Human_Capital",0.0699318
+"265",2019,"Romania","EU","DESI_Integration",0.0325187
+"266",2019,"Romania","EU","DESI",0.2236509
+"267",2019,"Sweden","EU","DESI_Connectivity",0.109733
+"268",2019,"Sweden","EU","DESI_Public_Services",0.170867
+"269",2019,"Sweden","EU","DESI_Human_Capital",0.141231
+"270",2019,"Sweden","EU","DESI_Integration",0.0978024
+"271",2019,"Sweden","EU","DESI",0.5196334
+"272",2019,"Spain","EU","DESI_Connectivity",0.102991
+"273",2019,"Spain","EU","DESI_Public_Services",0.169977
+"274",2019,"Spain","EU","DESI_Human_Capital",0.121422
+"275",2019,"Spain","EU","DESI_Integration",0.0759788
+"276",2019,"Spain","EU","DESI",0.4703688
+"277",2019,"Czechia","EU","DESI_Connectivity",0.0730413
+"278",2019,"Czechia","EU","DESI_Public_Services",0.126384
+"279",2019,"Czechia","EU","DESI_Human_Capital",0.107438
+"280",2019,"Czechia","EU","DESI_Integration",0.0650011
+"281",2019,"Czechia","EU","DESI",0.3718644
+"282",2019,"Hungary","EU","DESI_Connectivity",0.0791334
+"283",2019,"Hungary","EU","DESI_Public_Services",0.112654
+"284",2019,"Hungary","EU","DESI_Human_Capital",0.0911203
+"285",2019,"Hungary","EU","DESI_Integration",0.0389326
+"286",2019,"Hungary","EU","DESI",0.3218403
+"287",2019,"Netherlands","EU","DESI_Connectivity",0.0901532
+"288",2019,"Netherlands","EU","DESI_Public_Services",0.173126
+"289",2019,"Netherlands","EU","DESI_Human_Capital",0.14461
+"290",2019,"Netherlands","EU","DESI_Integration",0.0973343
+"291",2019,"Netherlands","EU","DESI",0.5052235
+"292",2019,"Poland","EU","DESI_Connectivity",0.0658888
+"293",2019,"Poland","EU","DESI_Public_Services",0.105474
+"294",2019,"Poland","EU","DESI_Human_Capital",0.0847774
+"295",2019,"Poland","EU","DESI_Integration",0.0416292
+"296",2019,"Poland","EU","DESI",0.2977694

@@ -191,7 +191,7 @@ adii_dii_clust <- adii_dii_stand %>% select(Entity, DII_Supply = Supply, DII_Dem
 
 adii_dii_clust <- apply(adii_dii_clust[,-1], MARGIN = 2, FUN = zscore)
 distance <- dist(t(adii_dii_clust))
-adii_dii_tree <- hclust(distance)
+adii_dii_tree <- hclust(distance, method = "ward.D2")
 plot(adii_dii_tree)
 
 
@@ -203,5 +203,5 @@ desi_dii_clust <- desi_dii_stand %>% select(Entity, DII_Supply = Supply, DII_Dem
 
 desi_dii_clust <- apply(desi_dii_clust[,-1], MARGIN = 2, FUN = zscore)
 distance <- dist(t(desi_dii_clust))
-desi_dii_tree <- hclust(distance, method = "average")
+desi_dii_tree <- hclust(distance, method = "ward.D2")
 plot(desi_dii_tree)
