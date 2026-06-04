@@ -109,3 +109,7 @@ corrplot(cor_mat)
 test <- cor.mtest(Res_Pillars[,-1])$p
 
 cor(adii_dii_stand[,c(6:18)])
+
+
+dii %>% filter(Region == "Europe & Central Asia") %>% arrange(Score)
+dii %>% filter(Region == "Asia Pacific") %>% arrange(Score)
