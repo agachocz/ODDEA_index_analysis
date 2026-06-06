@@ -6,7 +6,7 @@ library(countrycode)
 # ITU data hub
 
 itu_dh <- read.csv("paper 3/data/ITU_all_data.csv") %>% select(entity, internet_use, mobile) %>%
-  mutate(internet_use = internet_use/100*20, mobile = mobile/100*20) %>%
+  mutate(internet_use = internet_use/100*20, mobile = mobile/400*20) %>%
   rename(I62_internet_use = internet_use, I61_mobile = mobile) %>%
   mutate(entity = countryname(entity, "country.name", "country.name"))
 
@@ -26,7 +26,8 @@ eu_countries <- subset(countrycode::codelist,
                        select = "country.name.en")$country.name.en
 
 eu_trpc = data.frame(entity = eu_countries, I21_data_protection = 20)
-trpc <- rbind(trpc, eu_trpc)
+additional <- eu_trpc[!(eu_trpc$entity %in% trpc$entity), ]
+trpc <- rbind(trpc, additional)
 
 # ITU Global Cybersecurity Index
 
@@ -179,7 +180,8 @@ rnd_expenditure <- global_competetiveness_index %>% filter(str_detect(Indicator,
 
 knowledge_emp <- read.csv("paper 3/data/knowledge intensive employment.csv", sep = ";") %>%
   mutate(I42_knowledge_emp = as.numeric(str_remove(knowledge_emp, "%"))) %>% select(entity, I42_knowledge_emp)  %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name", "country.name")) %>%
+  mutate(I42_knowledge_emp = I42_knowledge_emp/100*20)
 
 # id and digital id
 
@@ -196,7 +198,7 @@ digital_id <- read.csv("paper 3/data/digital id system.csv") %>% filter(str_dete
   select(Country.Name, "X2021..YR2021.", "X2017..YR2017.", "X2024..YR2024.") %>%
   pivot_longer(-Country.Name, names_to = "year", values_to = "value") %>%
   mutate(value = as.numeric(value)) %>%
-  group_by(Country.Name) %>% summarise(I35_digital_id = mean(value, na.rm = T)/100*20) %>%
+  group_by(Country.Name) %>% summarise(I35_digital_id = mean(value, na.rm = T)*20) %>%
   select(entity = Country.Name, I35_digital_id) %>%
   mutate(entity = countryname(entity, "country.name", "country.name"))
 
