@@ -243,3 +243,5 @@ global_competetiveness_index$Value = as.numeric(str_remove_all(global_competetiv
 summary(global_competetiveness_index)
 
 write.csv(global_competetiveness_index, "paper 3/data/global_competitive_index_dataset.csv")
+
+global_competetiveness_index %>% filter(entity == "Singapore")
