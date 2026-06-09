@@ -17,24 +17,42 @@ unique(itu_dh$entity)
 trpc <- read.csv("paper 3/data/TRPC data protection index.txt") %>% 
   select(entity = Economy, I21_data_protection = Total.Score) %>%
   mutate(I21_data_protection = I21_data_protection/72*20) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = str_remove(entity, "\\*")) %>%
+  mutate(entity = countryname(entity, destination = "country.name"))
 
-# add maximum level of protection for the European Union
+files <- list.files("paper 3/data/")
+files <- files[str_detect(files, "trpc")]
 
-eu_countries <- subset(countrycode::codelist, 
-                       eu28 == "EU", 
-                       select = "country.name.en")$country.name.en
+first <- TRUE
+for(i in files){
+  d <- read.csv(paste0("paper 3/data/", i), sep = ";")
+  # print(ncol(d))
+  
+  colnames(d) <- c("entity", str_remove(i, ".csv"))
+  
+  if(first){
+    trpc_add <- d
+    first = FALSE
+  } else {
+    trpc_add <- full_join(trpc_add, d, by = "entity")
+  }
+}
 
-eu_trpc = data.frame(entity = eu_countries, I21_data_protection = 20)
-additional <- eu_trpc[!(eu_trpc$entity %in% trpc$entity), ]
+
+trpc_add$I21_data_protection = rowMeans(trpc_add[,-1], na.rm = T)/6*20
+trpc_add <- trpc_add %>% mutate(entity = countryname(entity, destination = "country.name"))
+
+additional <- trpc_add[!(trpc_add$entity %in% trpc$entity), c(1,9)]
 trpc <- rbind(trpc, additional)
+
+
 
 # ITU Global Cybersecurity Index
 
 cybersec <- read.csv("paper 3/data/ITU Global Cybersecurity Index.csv") %>%
   select(entity = Country.name, I22_legal = Legal, I23_Institutional = Organization, 
          I24_Technical = Technical, I25_Cooperation = Cooperation.Measures) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name"))
   
 
 # UN e-government - CAN POTENTIALLY REDUCE NA BY TAKING MULTIPLE YEARS
@@ -42,17 +60,22 @@ cybersec <- read.csv("paper 3/data/ITU Global Cybersecurity Index.csv") %>%
 egov = read.csv("paper 3/data/EGOV_DATA_2022.csv") %>%
   select(entity = Country.Name, I63_gov_services = Online.Service.Index) %>%
   mutate(I63_gov_services = I63_gov_services*20) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name"))
 
 
 # Global Findex database
 
-findex <- read.csv("paper 3/data/GlobalFindexDatabase2025.csv") %>% filter(year >= 2018, group == "all") %>%
-  select(entity = countrynewwb, I31_bank_services = g20_any, I32_digital_money = merchant_pay) %>% group_by(entity) %>%
-  summarise(I31_bank_services = mean(I31_bank_services, na.rm = T), I32_digital_money = mean(I32_digital_money, na.rm = T)) %>%
-  mutate(I31_bank_services = I31_bank_services*20, I32_digital_money = I32_digital_money*20) %>%
+findex <- read.csv("paper 3/data/GlobalFindexDatabase2025.csv") %>% filter(group == "all") %>%
+  select(entity = countrynewwb, I31_bank_services = g20_any, I32_digital_money = merchant_pay, year) %>% arrange(desc(year)) %>%
   mutate(I32_digital_money = ifelse(is.na(I32_digital_money) & !is.na(I31_bank_services), I31_bank_services, I32_digital_money)) %>%
-    mutate(entity = countryname(entity, "country.name", "country.name"))
+  filter(!is.na(I31_bank_services)) %>% group_by(entity) %>% summarise(
+    I31_bank_services = first(I31_bank_services),
+    I32_digital_money = first(I32_digital_money)) %>%
+  mutate(I31_bank_services = I31_bank_services*20, I32_digital_money = I32_digital_money*20) %>% 
+  mutate(entity = countryname(entity, "country.name")) %>%
+  filter(!is.na(entity))
+
+summary(findex)
 
 
 # 3.1 - using bank services: g20.any
@@ -65,7 +88,7 @@ ease <- read.csv("paper 3/data/World Bank ease of starting a business.csv", sep 
   filter(entity != "Max Score") %>%
   mutate(I54_ease_of_business = (P1_regulation + P2_services + P3_efficiency)/3/100*20) %>%
   select(entity, I54_ease_of_business) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name"))
 
 ease_add <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1101_") | str_detect(Indicator, "I1102_")) %>%
   group_by(entity) %>% summarise(Value = mean(Value, na.rm = T)) %>%
@@ -81,17 +104,21 @@ ease <- rbind(ease, additional)
 
 logistics_serv = read.csv("paper 3/data/LPI quality of services.csv") %>%
   filter(COMP_BREAKDOWN_1_LABEL == "Metric: Score", TIME_PERIOD %in% c(2016,2018,2023)) %>%
-  select(entity = REF_AREA_LABEL, I15_logistic_services = OBS_VALUE) %>%
-  group_by(entity) %>% summarise(I15_logistic_services = mean(I15_logistic_services, na.rm = T)) %>%
+  arrange(desc(TIME_PERIOD)) %>% select(entity = REF_AREA_LABEL, OBS_VALUE) %>%
+  filter(!is.na(OBS_VALUE)) %>%
+  group_by(entity) %>% summarise(OBS_VALUE = first(OBS_VALUE)) %>%
+  rename(I15_logistic_services = OBS_VALUE) %>%
   mutate(I15_logistic_services = I15_logistic_services/5*20) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name"))
 
 logistics_infr = read.csv("paper 3/data/LPI quality of infrastructure.csv") %>%
   filter(COMP_BREAKDOWN_1_LABEL == "Metric: Score", TIME_PERIOD %in% c(2016,2018,2023)) %>%
-  select(entity = REF_AREA_LABEL, I14_logistic_infrastructure = OBS_VALUE) %>%
-  group_by(entity) %>% summarise(I14_logistic_infrastructure = mean(I14_logistic_infrastructure, na.rm = T)) %>%
+  arrange(desc(TIME_PERIOD)) %>% select(entity = REF_AREA_LABEL, OBS_VALUE) %>%
+  filter(!is.na(OBS_VALUE)) %>%
+  group_by(entity) %>% summarise(OBS_VALUE = first(OBS_VALUE)) %>%
+  rename(I14_logistic_infrastructure = OBS_VALUE) %>%
   mutate(I14_logistic_infrastructure = I14_logistic_infrastructure/5*20) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name"))
+  mutate(entity = countryname(entity, "country.name"))
 
 # OECD trade facilitation - LOAD ALL THE FILES AND AGGREGATE
 
@@ -102,8 +129,8 @@ first <- TRUE
 for(i in files){
   d <- read.csv(paste0("paper 3/data/", i), sep = ";") %>%
     mutate(X2017 = as.numeric(X2017), X2019 = as.numeric(X2019), X2022 = as.numeric(X2022)) %>%
-    pivot_longer(-Country, names_to = "year", values_to = "value") %>%
-    group_by(Country) %>% summarise(value = mean(value, na.rm = T))
+    mutate(value = if_else(is.na(X2022), if_else(is.na(X2019), X2017, X2019), X2022)) %>%
+    select(Country, value)
   
   colnames(d) <- c("entity", str_remove(i, ".csv"))
   
@@ -135,48 +162,46 @@ oecd <- oecd %>% mutate(I13_trade_procedures = OECD_A7/2*20, I12_digital_certifi
 # 6.4 - government responsive to disruption and change
 # 6.5 - legal framework constructive to innovation
 
-collaboration <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1204_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I43_collaboration = Value) %>%
-  mutate(I43_collaboration = I43_collaboration/7*20)
+collaboration <- GCI_data %>% select(entity, I43_collaboration = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I43_collaboration = as.numeric(I43_collaboration)/100*20)
 
-digital_skills <- global_competetiveness_index %>% filter(str_detect(Indicator, "I605_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I44_digital_skills = Value) %>%
-  mutate(I44_digital_skills = I44_digital_skills/7*20)
+digital_skills <- GCI_data %>% select(entity, I44_digital_skills = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I44_digital_skills = as.numeric(I44_digital_skills)/100*20)
 
-graduates_skills <- global_competetiveness_index %>% filter(str_detect(Indicator, "I604_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I45_graduates_skills = Value) %>%
-  mutate(I45_graduates_skills = I45_graduates_skills/7*20)
+graduates_skills <- GCI_data %>% select(entity, I45_graduates_skills = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I45_graduates_skills = as.numeric(I45_graduates_skills)/100*20)
 
-venture_capital <- global_competetiveness_index %>% filter(str_detect(Indicator, "I903_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I51_venture_capital = Value) %>%
-  mutate(I51_venture_capital = I51_venture_capital/7*20)
+venture_capital <- GCI_data %>% select(entity, I51_venture_capital = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I51_venture_capital = as.numeric(I51_venture_capital)/100*20)
 
-innovative_companies <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1107_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I53_innovative_companies = Value) %>%
-  mutate(I53_innovative_companies = I53_innovative_companies/7*20)
+innovative_companies <- GCI_data %>% select(entity, I53_innovative_companies = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I53_innovative_companies = as.numeric(I53_innovative_companies)/100*20)
 
-gov_responses <- global_competetiveness_index %>% filter(str_detect(Indicator, "I121_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I64_gov_responses = Value) %>%
-  mutate(I64_gov_responses = I64_gov_responses/7*20)
+gov_responses <- GCI_data %>% select(entity, I64_gov_responses = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I64_gov_responses = as.numeric(I64_gov_responses)/100*20)
 
 # not sure if this is the correct indicator
-innovation_framework <- global_competetiveness_index %>% filter(str_detect(Indicator, "I122_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I65_innovation_framework = Value) %>%
-  mutate(I65_innovation_framework = I65_innovation_framework/7*20)
+innovation_framework <- GCI_data %>% select(entity, I65_innovation_framework = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I65_innovation_framework = as.numeric(I65_innovation_framework)/100*20)
 
 # intellectual property rights protection
 
-intellectual_property <- global_competetiveness_index %>% filter(str_detect(Indicator, "I115_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I55_intellectual_property = Value) %>%
-  mutate(I55_intellectual_property = I55_intellectual_property/7*20)
+intellectual_property <- GCI_data %>% select(entity, I55_intellectual_property = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I55_intellectual_property = as.numeric(I55_intellectual_property)/100*20)
 
+# RnD expenditure
 
-# RnD expenditure 20 points for the maximum value
-global_competetiveness_index %>% filter(str_detect(Indicator, "I1207_")) %>% summarise(max = max(Value, na.rm = T))
-
-rnd_expenditure <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1207_")) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I52_rnd_expenditure = Value) %>%
-  mutate(I52_rnd_expenditure = I52_rnd_expenditure/4.3*20)
+rnd_expenditure <- GCI_data %>% select(entity, I52_rnd_expenditure = WEF_GCI_MULTISTAKECOLLAB) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I52_rnd_expenditure = as.numeric(I52_rnd_expenditure)/100*20)
 
 knowledge_emp <- read.csv("paper 3/data/knowledge intensive employment.csv", sep = ";") %>%
   mutate(I42_knowledge_emp = as.numeric(str_remove(knowledge_emp, "%"))) %>% select(entity, I42_knowledge_emp)  %>%
@@ -236,7 +261,7 @@ all_data <- graduates_skills %>% full_join(digital_skills, by = "entity") %>%
   full_join(digital_id, by = "entity") %>%
   full_join(graduates_STEM, by = "entity") %>%
   full_join(intellectual_property, by = "entity") %>%
-  filter(!is.na(entity))
+  filter(!is.na(entity)) %>% filter(!str_detect(entity, "country"))
 
 #%>% drop_na()
 
@@ -245,8 +270,8 @@ sort(colnames(all_data))
 
 clean_data <- all_data %>% drop_na()
 
-all_data %>% filter(entity == "Germany") %>% is.na()
+all_data %>% filter(entity == "United States") %>% is.na()
 small_na <- all_data$entity[rowSums(is.na(all_data)) < 3]
 all_data[rowSums(is.na(all_data)) < 3,] %>% summary()
 
-# biggest missing: data protection, knowledge_emp, stem_graduates
+# biggest missing: bank services, digital money
