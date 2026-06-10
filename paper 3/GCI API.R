@@ -8,7 +8,7 @@ q <- 'https://data360api.worldbank.org/data360/indicators?datasetId=WEF_GCI'
 res = GET(q)
 indicators <- fromJSON(content(res, encoding = "UTF-8", type = "text"))
 
-schema <- 'https://data360api.worldbank.org/data360/data?DATABASE_ID=WEF_GCI&INDICATOR=PLACEHOLDER&TIME_PERION=2019&skip=0'
+schema <- 'https://data360api.worldbank.org/data360/data?DATABASE_ID=WEF_GCI&INDICATOR=PLACEHOLDER&skip=0'
 
 first = TRUE
 for(i in indicators){

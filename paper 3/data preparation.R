@@ -164,44 +164,111 @@ oecd <- oecd %>% mutate(I13_trade_procedures = OECD_A7/2*20, I12_digital_certifi
 
 collaboration <- GCI_data %>% select(entity, I43_collaboration = WEF_GCI_MULTISTAKECOLLAB) %>%
   mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I43_collaboration = as.numeric(I43_collaboration)/100*20)
+  mutate(I43_collaboration = as.numeric(I43_collaboration)/100*20) %>%
+  filter(!is.na(I43_collaboration))
 
-digital_skills <- GCI_data %>% select(entity, I44_digital_skills = WEF_GCI_MULTISTAKECOLLAB) %>%
-  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I44_digital_skills = as.numeric(I44_digital_skills)/100*20)
+digital_skills %>% filter(entity %in% c("Singapore", "Thailand", "Vietnam", "United States"))
 
-graduates_skills <- GCI_data %>% select(entity, I45_graduates_skills = WEF_GCI_MULTISTAKECOLLAB) %>%
-  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I45_graduates_skills = as.numeric(I45_graduates_skills)/100*20)
+missing <- data.frame(
+  entity = c("Singapore", "Thailand", "Vietnam", "United States"),
+  I43_collaboration = c(66.0, 52.1, 43.9, 73.9)/100*20
+)
 
-venture_capital <- GCI_data %>% select(entity, I51_venture_capital = WEF_GCI_MULTISTAKECOLLAB) %>%
-  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I51_venture_capital = as.numeric(I51_venture_capital)/100*20)
+collaboration <- rbind(collaboration, missing)
 
-innovative_companies <- GCI_data %>% select(entity, I53_innovative_companies = WEF_GCI_MULTISTAKECOLLAB) %>%
-  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I53_innovative_companies = as.numeric(I53_innovative_companies)/100*20)
 
-gov_responses <- GCI_data %>% select(entity, I64_gov_responses = WEF_GCI_MULTISTAKECOLLAB) %>%
+digital_skills <- GCI_data %>% select(entity, I44_digital_skills = WEF_GCI_EOSQ508) %>%
   mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I64_gov_responses = as.numeric(I64_gov_responses)/100*20)
+  mutate(I44_digital_skills = as.numeric(I44_digital_skills)/100*20) %>%
+  filter(!is.na(I44_digital_skills))
+
+missing <- data.frame(
+  entity = c("Thailand", "Vietnam", "United States"),
+  I44_digital_skills = c(54.3, 46.1, 71.2)/100*20
+)
+
+digital_skills <- rbind(digital_skills, missing)
+
+
+graduates_skills <- GCI_data %>% select(entity, I45_graduates_skills = WEF_GCI_GRADSKILLS) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I45_graduates_skills = as.numeric(I45_graduates_skills)/100*20) %>%
+  filter(!is.na(I45_graduates_skills))
+
+missing <- data.frame(
+  entity = c("Singapore", "Thailand", "Vietnam", "United States"),
+  I45_graduates_skills = c(73.4, 49.7, 41.2, 71.2)/100*20
+)
+
+graduates_skills <- rbind(graduates_skills, missing)
+
+
+venture_capital <- GCI_data %>% select(entity, I51_venture_capital = WEF_GCI_EOSQ089) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I51_venture_capital = as.numeric(I51_venture_capital)/100*20) %>%
+  filter(!is.na(I51_venture_capital))
+
+missing <- data.frame(
+  entity = c("Singapore", "Thailand", "Vietnam", "United States"),
+  I51_venture_capital = c(63.5, 46.1, 37.8, 70.6)/100*20
+)
+
+venture_capital <- rbind(venture_capital, missing)
+
+
+innovative_companies <- GCI_data %>% select(entity, I53_innovative_companies = WEF_GCI_EOSQ507) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I53_innovative_companies = as.numeric(I53_innovative_companies)/100*20) %>%
+  filter(!is.na(I53_innovative_companies))
+
+
+gov_responses <- GCI_data %>% select(entity, I64_gov_responses = WEF_GCI_EOSQ362) %>%
+  mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
+  mutate(I64_gov_responses = as.numeric(I64_gov_responses)/100*20) %>%
+  filter(!is.na(I64_gov_responses))
+
+missing <- data.frame(
+  entity = c("Singapore", "Thailand", "Vietnam", "United States"),
+  I64_gov_responses = c(85.2, 47.9, 49.4, 68.9)/100*20
+)
+
+gov_responses <- rbind(gov_responses, missing)
 
 # not sure if this is the correct indicator
-innovation_framework <- GCI_data %>% select(entity, I65_innovation_framework = WEF_GCI_MULTISTAKECOLLAB) %>%
+innovation_framework <- GCI_data %>% select(entity, I65_innovation_framework = WEF_GCI_EOSQ509) %>%
   mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I65_innovation_framework = as.numeric(I65_innovation_framework)/100*20)
+  mutate(I65_innovation_framework = as.numeric(I65_innovation_framework)/100*20) %>%
+  filter(!is.na(I65_innovation_framework))
+
 
 # intellectual property rights protection
 
-intellectual_property <- GCI_data %>% select(entity, I55_intellectual_property = WEF_GCI_MULTISTAKECOLLAB) %>%
+intellectual_property <- GCI_data %>% select(entity, I55_intellectual_property = WEF_GCI_EOSQ052) %>%
   mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I55_intellectual_property = as.numeric(I55_intellectual_property)/100*20)
+  mutate(I55_intellectual_property = as.numeric(I55_intellectual_property)/100*20) %>%
+  filter(!is.na(I55_intellectual_property))
+
+missing <- data.frame(
+  entity = c("Singapore", "Thailand", "Vietnam", "United States"),
+  I55_intellectual_property = c(89.3, 45.3, 44.4, 78.3)/100*20
+)
+
+intellectual_property <- rbind(intellectual_property, missing)
 
 # RnD expenditure
 
-rnd_expenditure <- GCI_data %>% select(entity, I52_rnd_expenditure = WEF_GCI_MULTISTAKECOLLAB) %>%
+rnd_expenditure <- GCI_data %>% select(entity, I52_rnd_expenditure = WEF_GCI_RDSPENDING) %>%
   mutate(entity = countrycode(entity, "iso3c", "country.name")) %>%
-  mutate(I52_rnd_expenditure = as.numeric(I52_rnd_expenditure)/100*20)
+  mutate(I52_rnd_expenditure = as.numeric(I52_rnd_expenditure)/100*20) %>%
+  filter(!is.na(I52_rnd_expenditure))
+
+missing <- data.frame(
+  entity = c("Thailand", "Vietnam", "United States"),
+  I52_rnd_expenditure = c(26.0, 14.7, 91.5)/100*20
+)
+
+rnd_expenditure <- rbind(rnd_expenditure, missing)
+
 
 knowledge_emp <- read.csv("paper 3/data/knowledge intensive employment.csv", sep = ";") %>%
   mutate(I42_knowledge_emp = as.numeric(str_remove(knowledge_emp, "%"))) %>% select(entity, I42_knowledge_emp)  %>%
@@ -217,6 +284,9 @@ have_id <- read.csv("paper 3/data/UN id data.csv") %>% filter(str_detect(Series.
   group_by(Country.Name) %>% summarise(I34_id_card = mean(value, na.rm = T)/100*20) %>%
   select(entity = Country.Name, I34_id_card) %>%
   mutate(entity = countryname(entity, "country.name", "country.name"))
+
+# Australia does not have a central ID system, so I set the value to 0
+have_id[have_id$entity == "Australia", 2] = 0
 
 
 digital_id <- read.csv("paper 3/data/digital id system.csv") %>% filter(str_detect(Series.Name, "Online digital identity")) %>%
@@ -270,7 +340,7 @@ sort(colnames(all_data))
 
 clean_data <- all_data %>% drop_na()
 
-all_data %>% filter(entity == "United States") %>% is.na()
+all_data %>% filter(entity == "Australia") %>% is.na()
 small_na <- all_data$entity[rowSums(is.na(all_data)) < 3]
 all_data[rowSums(is.na(all_data)) < 3,] %>% summary()
 

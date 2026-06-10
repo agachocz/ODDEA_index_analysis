@@ -5,6 +5,8 @@ library(tidyverse)
 sort(colnames(clean_data))
 summary(clean_data)
 
+codelist %>% filter(country.name.en %in% adii$entity) %>% select(un.region.name)
+
 adii <- clean_data %>% mutate(
   P1 = I11_digital_trade + I12_digital_certificates + I13_trade_procedures + I14_logistic_infrastructure + I15_logistic_services,
   P2 = I21_data_protection + I22_legal + I23_Institutional + I24_Technical + I25_Cooperation,
@@ -12,9 +14,29 @@ adii <- clean_data %>% mutate(
   P4 = I41_stem_graduates + I42_knowledge_emp + I43_collaboration + I44_digital_skills + I45_graduates_skills,
   P5 = I51_venture_capital + I52_rnd_expenditure + I53_innovative_companies + I54_ease_of_business + I55_intellectual_property,
   P6 = I61_mobile + I62_internet_use + I63_gov_services + I64_gov_responses + I65_innovation_framework
-  ) %>% mutate(Index = (P1+P2+P3+P5+P6)/6)
+  ) %>% mutate(Index = (P1+P2+P3+P5+P6)/6) %>% arrange(entity)
 
-adii %>% select(P1:Index) %>% summary()
+region_names = codelist %>% filter(country.name.en %in% adii$entity) %>% arrange(country.name.en) %>%
+  select(country.name.en, un.region.name)
+
+adii <- adii %>% left_join(region_names, by = c("entity" = "country.name.en")) %>%
+  rename(region = un.region.name)
+
+adii %>% #group_by(region) %>% 
+  select(P1:Index) %>% summarise(across(P1:Index, mean))
+
+adii %>% group_by(region) %>% tally()
+adii %>% #filter(region == "Asia") %>% 
+  select(entity, Index, region) %>% arrange(desc(Index))
+
+europe <- subset(codelist, un.region.name == "Europe", select = "country.name.en")
+asia <- subset(codelist, un.region.name == "Asia", select = "country.name.en") 
+africa <- subset(codelist, un.region.name == "Africa", select = "country.name.en")
+oceania <- subset(codelist, un.region.name == "Oceania", select = "country.name.en")
+americas <- subset(codelist, un.region.name == "Americas", select = "country.name.en")
+
+unique(codelist$un.region.name)
+colnames(codelist)
 
 # compare with the original values
 
@@ -23,10 +45,17 @@ colnames(adii_asean) <- c("entity", "P1_org", "P2_org", "P3_org", "P4_org", "P5_
 adii_asean <- adii_asean  %>% mutate(entity = countryname(entity, "country.name", "country.name"))
 
 comparison <- adii_asean %>% left_join(adii, by = "entity") %>% 
-  select(entity, P1_org, P1, P2_org, P2, P3_org, P3, P4_org, P4, P5_org, P5, P6_org, P6)
+  select(entity, P1_org, P1, P2_org, P2, P3_org, P3, P4_org, P4, P5_org, P5, P6_org, P6) %>% drop_na()
+
+comparison %>% group_by(entity) %>% summarise(
+  RMSE = sqrt(((P1_org-P1)^2 + (P2_org-P2)^2 + (P3_org-P3)^2 + (P4_org-P4)^2 + (P5_org-P5)^2 + (P6_org-P6)^2)/6),
+  MAPE = ((abs(P1_org-P1)/P1_org + abs(P2_org-P2)/P2_org + abs(P3_org-P3)/P3_org + 
+             abs(P4_org-P4)/P4_org + abs(P5_org-P5)/P5_org + abs(P6_org-P6)/P6_org)/6)
+) %>% ungroup() %>% summarise(RMSE = mean(RMSE), MAPE = mean(MAPE))
 
 cor(na.omit(comparison[,-1])) # most have pretty high correlation, but the number of cases is low
 
+cor(comparison$P6, comparison$P6_org)
 
 # draw a map
 
