@@ -52,10 +52,42 @@ ADII_GCI_indicators <- c("WEF_GCI_MULTISTAKECOLLAB", "WEF_GCI_EOSQ508", "WEF_GCI
 
 # indicators descriptions
 
-q <- "https://data360api.worldbank.org/data360/metadata&$filter=series_description/idno eq 'WEF_GCI_SRVCTRADERESTRICT'&$select=series_description/database_id,series_description/idno"
+library(httr)
+library(jsonlite)
+library(dplyr)
 
-q <- "https://data360api.worldbank.org/data360/metadata&$filter=series_description/database_id eq 'WEF_GCI'&$select=series_description/database_id,series_description/idno"
+url_ids <- "https://data360api.worldbank.org/data360/indicators?datasetId=WEF_GCI"
+res_ids <- GET(url_ids)
 
-res = POST(q)
+indicator_ids <- fromJSON(content(res_ids, encoding = "UTF-8", type = "text"))
 
-meta <- fromJSON(content(res, encoding = "UTF-8", type = "text"))
+url_metadata <- "https://data360api.worldbank.org/data360/metadata"
+
+library(httr)
+
+headers = c(
+  accept = "*/*",
+  `Content-Type` = "application/json"
+)
+
+first <- TRUE
+for(i in indicator_ids){
+  data = "{\n  \"query\": \"&$filter=series_description/idno eq 'WEF_GCI_EOSQ470'\"\n}"
+  
+  data <- str_replace(data, "WEF_GCI_EOSQ470", i)
+  
+  res <- httr::POST(url = "https://data360api.worldbank.org/data360/metadata", httr::add_headers(.headers=headers), body = data)
+  
+  json_meta <- fromJSON(content(res, encoding = "UTF-8", type = "text"))
+  metadata_df <- json_meta[["value"]][["series_description"]] %>% select(idno, name, measurement_unit)
+  
+  if(first){
+    metadata <- metadata_df
+    first = FALSE
+  } else {
+    metadata <- rbind(metadata, metadata_df)
+  }
+}
+
+
+metadata
