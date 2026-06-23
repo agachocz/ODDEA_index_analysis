@@ -90,15 +90,15 @@ ease <- read.csv("paper 3/data/World Bank ease of starting a business.csv", sep 
   select(entity, I54_ease_of_business) %>%
   mutate(entity = countryname(entity, "country.name"))
 
-ease_add <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1101_") | str_detect(Indicator, "I1102_")) %>%
-  group_by(entity) %>% summarise(Value = mean(Value, na.rm = T)) %>%
-  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I54_ease_of_business = Value) %>%
-  mutate(I54_ease_of_business = (310.65-I54_ease_of_business)/310.65*20)
+#ease_add <- global_competetiveness_index %>% filter(str_detect(Indicator, "I1101_") | str_detect(Indicator, "I1102_")) %>%
+#  group_by(entity) %>% summarise(Value = mean(Value, na.rm = T)) %>%
+#  mutate(entity = countryname(entity, "country.name", "country.name")) %>% select(entity, I54_ease_of_business = Value) %>%
+#  mutate(I54_ease_of_business = (310.65-I54_ease_of_business)/310.65*20)
 
-missing <- ease_add$entity[!(ease_add$entity %in% ease$entity)]
-additional <- ease_add %>% filter(entity %in% missing)
+#missing <- ease_add$entity[!(ease_add$entity %in% ease$entity)]
+#additional <- ease_add %>% filter(entity %in% missing)
 
-ease <- rbind(ease, additional)
+#ease <- rbind(ease, additional)
 
 # World Bank logistic performance index
 
@@ -302,10 +302,11 @@ digital_id <- read.csv("paper 3/data/digital id system.csv") %>% filter(str_dete
 summary(graduates_STEM)
 
 graduates_STEM <- read.csv("paper 3/data/graduates in STEM.csv") %>% group_by(geoUnit) %>%
-  summarise(value = mean(value, na.rm = T)) %>%
+  filter(!is.na(value)) %>% arrange(desc(year)) %>%
+  summarise(value = first(value)) %>%
   select(entity = geoUnit, I41_stem_graduates = value) %>%
   mutate(entity = countrycode(entity, origin = "iso3c", destination = "country.name")) %>% 
-  mutate(I41_stem_graduates = I41_stem_graduates/61.4*20)
+  mutate(I41_stem_graduates = I41_stem_graduates/100*20)
 
 
 # MERGING DATA
@@ -341,7 +342,9 @@ sort(colnames(all_data))
 clean_data <- all_data %>% drop_na()
 
 all_data %>% filter(entity == "Australia") %>% is.na()
-small_na <- all_data$entity[rowSums(is.na(all_data)) < 3]
-all_data[rowSums(is.na(all_data)) < 3,] %>% summary()
+small_na <- all_data$entity[rowSums(is.na(all_data)) < 4]
+all_data[rowSums(is.na(all_data)) < 5,] %>% summary()
+
+clean_data <- all_data %>% filter(entity %in% small_na)
 
 # biggest missing: bank services, digital money

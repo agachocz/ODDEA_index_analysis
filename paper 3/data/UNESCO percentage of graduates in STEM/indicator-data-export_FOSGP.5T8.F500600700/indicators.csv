@@ -1,0 +1,2 @@
+indicatorId,name,theme,lastDataUpdate,lastDataUpdateDescription,dataAvailability.totalRecordCount,dataAvailability.timeLine.min,dataAvailability.timeLine.max,dataAvailability.geoUnits.types,disaggregations,glossaryTerms
+FOSGP.5T8.F500600700,"Percentage of graduates from Science, Technology, Engineering and Mathematics programmes in tertiary education, both sexes (%)",EDUCATION,02/09/2026,February 2026 Data Release,1827,1998,2025,NATIONAL,"EduLvl:Tertiary, EduField:SciTecEngMat",2115
