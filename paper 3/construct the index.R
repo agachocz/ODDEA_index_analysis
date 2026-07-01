@@ -2,10 +2,10 @@ library(tidyverse)
 
 # based on clean_data from data preparation.R
 
-sort(colnames(clean_data))
+#sort(colnames(clean_data))
 summary(clean_data)
 
-codelist %>% filter(country.name.en %in% adii$entity) %>% select(un.region.name)
+#codelist %>% filter(country.name.en %in% adii$entity) %>% select(un.region.name)
 
 adii <- clean_data %>% pivot_longer(-entity, values_to = "value", names_to = "indicator") %>%
   mutate(pillar = substr(indicator, 1, 2)) %>% group_by(entity, pillar) %>% 
@@ -27,8 +27,10 @@ region_names = codelist %>% filter(country.name.en %in% adii$entity) %>% arrange
 adii <- adii %>% left_join(region_names, by = c("entity" = "country.name.en")) %>%
   rename(region = un.region.name)
 
-adii %>% #group_by(region) %>% 
-  select(P1:Index) %>% cor()
+adii %>% mutate(region = if_else(region == "Oceania", "Asia", region)) %>%
+  pivot_longer(-c(entity, region), values_to = "value", names_to = "pillar") %>%
+  group_by(pillar) %>%
+  summarise(n = n(), m = mean(value), sd = sd(value)) %>% print(n = 35, digits = 2)
 
 adii %>% group_by(region) %>% tally()
 adii %>% #filter(region == "Asia") %>% 
@@ -48,9 +50,10 @@ colnames(codelist)
 adii_asean <- read.csv("paper 3/data/ADII 2_0 scores.csv")
 colnames(adii_asean) <- c("entity", "P1_org", "P2_org", "P3_org", "P4_org", "P5_org", "P6_org")
 adii_asean <- adii_asean  %>% mutate(entity = countryname(entity, "country.name", "country.name"))
+adii_asean$Index_org <- rowMeans(adii_asean[,-1])
 
 comparison <- adii_asean %>% left_join(adii, by = "entity") %>% 
-  select(entity, P1_org, I1, P2_org, I2, P3_org, I3, P4_org, I4, P5_org, I5, P6_org, I6) %>% drop_na()
+  select(entity, P1_org, I1, P2_org, I2, P3_org, I3, P4_org, I4, P5_org, I5, P6_org, I6, Index_org, Index) %>% drop_na()
 
 comparison %>% group_by(entity) %>% summarise(
   RMSE = sqrt(((P1_org-I1)^2 + (P2_org-I2)^2 + (P3_org-I3)^2 + (P4_org-I4)^2 + (P5_org-I5)^2 + (P6_org-I6)^2)/6),
@@ -61,6 +64,11 @@ comparison %>% group_by(entity) %>% summarise(
 cor(na.omit(comparison[,-1])) # most have pretty high correlation, but the number of cases is low
 
 cor(comparison$P6, comparison$P6_org)
+
+# for table in the article
+
+mean(abs(comparison$Index_org-comparison$Index)/comparison$Index_org)*100
+mean((comparison$Index_org-comparison$Index))
 
 # draw a map
 
@@ -93,3 +101,32 @@ map_adii <- world_moll %>% left_join(adii, by = c("iso_a3_eh"="code"), multiple 
   labs(fill = "ADII")
 
 map_adii
+
+
+
+# compare with DESI and ICT - overall a pretty good similarity
+
+desi <- read.csv("compound indicators/DESI.csv") %>% filter(time_period == 2022, indicator == "desi_total") %>%
+  mutate(ref_area = if_else(ref_area == "EL", "GR", ref_area)) %>%
+  mutate(entity = countrycode(ref_area, origin = "iso2c", destination = "country.name"),
+         DESI = value*100) %>% filter(!is.na(entity)) %>%
+  select(entity, DESI)
+
+#summary(desi)
+#unique(desi$indicator)
+
+desi_adii <- desi %>% inner_join(adii, by = "entity")
+cor(desi_adii$DESI, desi_adii$Index, method = "s") # pretty good!
+
+idi <- read.csv("paper 3/data/IDI 2023 Scores.csv") %>%
+  mutate(entity = countryname(Economy, "country.name")) %>% 
+  select(entity, IDI = IDI.Score)
+
+idi_adii <- idi %>% inner_join(adii, by = "entity")
+cor(idi_adii$IDI, idi_adii$Index)
+
+summary(idi_adii)
+
+boxplot(idi_adii$IDI)
+boxplot(idi_adii$Index)
+boxplot(desi$DESI)

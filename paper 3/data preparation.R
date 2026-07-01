@@ -1,15 +1,36 @@
 library(tidyverse)
 
-install.packages("countrycode")
+#install.packages("countrycode")
 library(countrycode)
 
 # ITU data hub
 
+# THE DATA MAY BE TOO NEW - COLLECT NEW VALUES FROM THE DATA HUB!!!
 itu_dh <- read.csv("paper 3/data/ITU_all_data.csv") %>% select(entity, internet_use, mobile) %>%
   mutate(internet_use = internet_use/100*20, mobile = mobile/400*20) %>%
   rename(I62_internet_use = internet_use, I61_mobile = mobile) %>%
   mutate(entity = countryname(entity, "country.name", "country.name"))
 
+
+mobile <- read.csv("paper 3/data/itu_data_1.csv") %>% filter(dataYear <= 2018, seriesUnits == "per 100 people") %>%
+  filter(seriesName == "Active mobile-broadband subscriptions") %>%
+  mutate(entity = countryname(entityName, "country.name", "country.name")) %>%
+  select(entity, year = dataYear, dataValue) %>% group_by(entity) %>% arrange(desc(year)) %>%
+  filter(!is.na(entity) & !is.na(dataValue)) %>%
+  summarise(dataValue = first(dataValue)) %>% #filter(!(entity %in% c("Macao SAR China", "United Arab Emirates"))) %>%
+  mutate(dataValue = if_else(dataValue > 100, 100, dataValue)) %>%
+  mutate(I61_mobile = dataValue/max(dataValue)*20) %>% select(entity, I61_mobile)
+
+summary(mobile)
+
+internet <- read.csv("paper 3/data/internet_users.csv") %>% 
+  select(entity = REF_AREA_LABEL, year = TIME_PERIOD, dataValue = OBS_VALUE) %>%
+  mutate(entity = countryname(entity, "country.name", "country.name")) %>%
+  select(entity, year, dataValue) %>% group_by(entity) %>% arrange(desc(year)) %>%
+  filter(!is.na(entity) & !is.na(dataValue)) %>%
+  summarise(dataValue = first(dataValue)) %>%
+  mutate(I62_internet_use = dataValue/100*20) %>% select(entity, I62_internet_use)
+ 
 unique(itu_dh$entity)
 
 # TRPC data protection index
@@ -146,7 +167,7 @@ summary(oecd)
 # lots of NA: G1, G13, G2, G3
 
 oecd <- oecd %>% mutate(I13_trade_procedures = OECD_A7/2*20, I12_digital_certificates = OECD_G11/2*20, 
-                        I11_digital_trade = (OECD_G10+OECD_G12+OECD_G4+OECD_G5+OECD_G6+OECD_G9)/12*20,
+                        I11_digital_trade = (OECD_G10+OECD_G12+OECD_G4+OECD_G6+OECD_G9)/12*20,
                         I33_electronic_transactions = OECD_G5/2*20) %>%
   select(entity, I11_digital_trade, I12_digital_certificates, I13_trade_procedures, I33_electronic_transactions) %>%
   mutate(entity = countryname(entity, "country.name", "country.name"))
@@ -278,7 +299,7 @@ knowledge_emp <- read.csv("paper 3/data/knowledge intensive employment.csv", sep
 # id and digital id
 
 have_id <- read.csv("paper 3/data/UN id data.csv") %>% filter(str_detect(Series.Name, "ID ownership")) %>%
-  select(Country.Name, "X2021..YR2021.", "X2017..YR2017.", "X2024..YR2024.") %>%
+  select(Country.Name, "X2021..YR2021.", "X2017..YR2017.") %>%
   pivot_longer(-Country.Name, names_to = "year", values_to = "value") %>%
   mutate(value = as.numeric(value)) %>%
   group_by(Country.Name) %>% summarise(I34_id_card = mean(value, na.rm = T)/100*20) %>%
@@ -290,7 +311,7 @@ have_id[have_id$entity == "Australia", 2] = 0
 
 
 digital_id <- read.csv("paper 3/data/digital id system.csv") %>% filter(str_detect(Series.Name, "Online digital identity")) %>%
-  select(Country.Name, "X2021..YR2021.", "X2017..YR2017.", "X2024..YR2024.") %>%
+  select(Country.Name, "X2021..YR2021.", "X2017..YR2017.") %>%
   pivot_longer(-Country.Name, names_to = "year", values_to = "value") %>%
   mutate(value = as.numeric(value)) %>%
   group_by(Country.Name) %>% summarise(I35_digital_id = mean(value, na.rm = T)*20) %>%
@@ -301,7 +322,8 @@ digital_id <- read.csv("paper 3/data/digital id system.csv") %>% filter(str_dete
 # graduates in STEM - 2021
 summary(graduates_STEM)
 
-graduates_STEM <- read.csv("paper 3/data/graduates in STEM.csv") %>% group_by(geoUnit) %>%
+graduates_STEM <- read.csv("paper 3/data/graduates in STEM.csv") %>% filter(year <= 2023) %>%
+  group_by(geoUnit) %>%
   filter(!is.na(value)) %>% arrange(desc(year)) %>%
   summarise(value = first(value)) %>%
   select(entity = geoUnit, I41_stem_graduates = value) %>%
@@ -326,7 +348,8 @@ all_data <- graduates_skills %>% full_join(digital_skills, by = "entity") %>%
   full_join(egov, by = "entity") %>%
   full_join(trpc, by = "entity") %>%
   full_join(cybersec, by = "entity") %>%
-  full_join(itu_dh, by = "entity") %>%
+  full_join(internet, by = "entity") %>%
+  full_join(mobile, by = "entity") %>%
   full_join(knowledge_emp, by = "entity") %>%
   full_join(have_id, by = "entity") %>%
   full_join(digital_id, by = "entity") %>%
