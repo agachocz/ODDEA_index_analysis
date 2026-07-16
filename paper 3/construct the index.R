@@ -116,17 +116,38 @@ desi <- read.csv("compound indicators/DESI.csv") %>% filter(time_period == 2022,
 #unique(desi$indicator)
 
 desi_adii <- desi %>% inner_join(adii, by = "entity")
-cor(desi_adii$DESI, desi_adii$Index, method = "s") # pretty good!
+cor(desi_adii$DESI, desi_adii$Index, method = "p") # pretty good!
 
 idi <- read.csv("paper 3/data/IDI 2023 Scores.csv") %>%
   mutate(entity = countryname(Economy, "country.name")) %>% 
   select(entity, IDI = IDI.Score)
 
 idi_adii <- idi %>% inner_join(adii, by = "entity")
-cor(idi_adii$IDI, idi_adii$Index)
+cor(idi_adii$IDI, idi_adii$Index, method = "s")
 
 summary(idi_adii)
+
+
+dii <- read.csv("compound indicators/DII.csv", sep = ";") %>% 
+  select(entity = Entity, DII = Digital.Evolution.Score) %>%
+  mutate(entity = countryname(entity, "country.name"))
+
+dii_idii <- dii %>% inner_join(adii, by = "entity")
+cor(dii_idii$DII, dii_idii$Index, method = "p")
+
 
 boxplot(idi_adii$IDI)
 boxplot(idi_adii$Index)
 boxplot(desi$DESI)
+
+
+# compare between indicators
+
+desi_idi <- idi %>% inner_join(desi, by = "entity")
+cor(desi_idi$IDI, desi_idi$DESI, method = "p")
+
+desi_dii <- dii %>% inner_join(desi, by = "entity")
+cor(desi_dii$DII, desi_dii$DESI, method = "s")
+
+dii_idi <- idi %>% inner_join(dii, by = "entity")
+cor(dii_idi$IDI, dii_idi$DII, method = "s")

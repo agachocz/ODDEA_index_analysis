@@ -33,10 +33,10 @@ pcaCharts(pc)
 
 nas <- colSums(is.na(all_data))
 
-pc <- prcomp(na.omit(clean_data[,P6]), center = TRUE, scale. = TRUE)
+pc <- prcomp(na.omit(clean_data[,P5]), center = TRUE, scale. = TRUE)
 summary(pc)
 
-cor(pc$x[,1:3], na.omit(clean_data[,P6]))
+cor(pc$x[,1:3], na.omit(clean_data[,P5]))
 
 # P6: I63_gov_services, I65_innovation_framework, I61_mobile | instead of I64_gov_responses use I65
 # P5: I55_intellectual_property, I54_ease_of_business, I52_rnd_expenditure | can change I54 for I53_innovative_companies
@@ -76,4 +76,20 @@ comparison %>% group_by(entity) %>% summarise(
              abs(P4_org-I4)/P4_org + abs(P5_org-I5)/P5_org + abs(P6_org-I6)/P6_org)/6)
 ) %>% ungroup() %>% summarise(RMSE = mean(RMSE), MAPE = mean(MAPE))
 
+cor(comparison$Index_org, comparison$Index)
 
+# for table in the article
+
+mean(abs(comparison$P1_org-comparison$I1)/comparison$P1_org)*100
+mean((comparison$P1_org-comparison$I1))
+
+
+adii_reduced <- adii_reduced %>% mutate(code = countrycode(entity, origin = "country.name", destination = "iso3c"))
+
+map_adii <- world_moll %>% left_join(adii_reduced, by = c("iso_a3_eh"="code"), multiple = "all") %>%
+  ggplot() + geom_sf(aes(fill = Index)) +
+  scale_fill_viridis_c(option = "plasma",begin = 0) +
+  theme(text = element_text(size = 20, family="serif")) +
+  labs(fill = "ADII")
+
+map_adii
